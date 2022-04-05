@@ -30,7 +30,7 @@ export default function LandingPage() {
                 }}
                 onClick={() => router.push("/Main-Landing-Page")}
               >
-                TRVS Data
+                TRVS
               </Typography>
             </Grid>
 
