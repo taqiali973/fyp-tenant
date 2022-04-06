@@ -50,7 +50,8 @@ export default function HotelLogin() {
             <Avatar style={avatarStyle}>
               <HotelIcon />
             </Avatar>
-            <h4>Sign In</h4>
+            <h4 style={{ marginTop: "10px" }}>Sign In</h4>
+            <h3 style={{ marginTop: "-33px" }}>Hotel</h3>
           </Grid>
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
