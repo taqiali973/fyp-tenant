@@ -8,10 +8,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import HotelIcon from "@mui/icons-material/Hotel";
+import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
 
 export default function HotelLogin() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,

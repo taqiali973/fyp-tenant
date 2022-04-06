@@ -7,10 +7,12 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
 
 export default function TenantLogin() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -102,7 +104,10 @@ export default function TenantLogin() {
           </Typography>
           <Typography>
             Don't have an account?
-            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
+            <Link
+              style={{ textDecoration: "none", cursor: "pointer" }}
+              onClick={() => router.push("/Tenant-SignUp")}
+            >
               Sign Up
             </Link>
           </Typography>
