@@ -10,9 +10,21 @@ import TenantLogin from "./Tenant-Login";
 import PoliceLogin from "./Police-Login";
 import HotelLogin from "./Hotel-Login";
 import LandingPage from "./Landing-Page";
+import { useRouter } from "next/router";
+
+const getActiveTab = (tab) => {
+  if (tab === "hotel") {
+    return 2;
+  } else if (tab === "police") {
+    return 1;
+  } else {
+    return 0;
+  }
+};
 
 function loginTabs() {
-  const [value, setValue] = useState(0);
+  const router = useRouter();
+  const [value, setValue] = useState(getActiveTab(router.query.activeTab));
   const handleTabs = (e, value) => {
     setValue(value);
   };

@@ -45,7 +45,6 @@ export default function HotelLogin() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          // backgroundColor: "#f3eded",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
@@ -54,7 +53,6 @@ export default function HotelLogin() {
               <HotelIcon />
             </Avatar>
             <h4 style={{ marginTop: "10px" }}>Sign In</h4>
-            <h3 style={{ marginTop: "-33px" }}>Hotel</h3>
           </Grid>
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -108,7 +106,10 @@ export default function HotelLogin() {
           </Typography>
           <Typography>
             Don't have an account?
-            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
+            <Link
+              style={{ textDecoration: "none", cursor: "pointer" }}
+              onClick={() => router.push("/Hotel-SignUp")}
+            >
               Sign Up
             </Link>
           </Typography>

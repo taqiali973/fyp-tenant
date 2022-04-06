@@ -49,7 +49,7 @@ export default function PoliceLogin() {
             <Avatar style={avatarStyle}>
               <LocalPoliceIcon />
             </Avatar>
-            <h4>Sign In</h4>
+            <h4 style={{ marginTop: "10px" }}>Sign In</h4>
           </Grid>
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -96,17 +96,6 @@ export default function PoliceLogin() {
               Sign In
             </Button>
           </form>
-          <Typography style={{ marginBottom: "3px" }}>
-            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
-              Forgot Password?
-            </Link>
-          </Typography>
-          <Typography>
-            Don't have an account?
-            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
-              Sign Up
-            </Link>
-          </Typography>
         </Paper>
       </Grid>
     </div>

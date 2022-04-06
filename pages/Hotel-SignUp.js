@@ -3,19 +3,19 @@ import LandingPage from "./Landing-Page";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
+import HotelIcon from "@mui/icons-material/Hotel";
 
-export default function TenantSignUp() {
+export default function HotelSignUp() {
   const router = useRouter();
 
   const paperStyle = {
     padding: 30,
     width: 700,
-    height: "60%",
+    height: "70%",
     borderRadius: "30px",
   };
 
@@ -44,15 +44,15 @@ export default function TenantSignUp() {
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
             <Avatar style={avatarStyle}>
-              <AccountCircleIcon />
+              <HotelIcon />
             </Avatar>
-            <Typography variant="h5">Sign Up</Typography>
+            <Typography variant="h5"> Sign Up</Typography>
             <form autoComplete="off" noValidate>
               <Grid container>
                 <Grid item lg={6} style={{ marginTop: "30px" }}>
                   <TextField
-                    label="Name"
-                    placeholder="Enter Name"
+                    label="UserName"
+                    placeholder="Enter UserName"
                     variant="outlined"
                     required
                     type="text"
@@ -61,8 +61,8 @@ export default function TenantSignUp() {
 
                 <Grid item lg={6} style={{ marginTop: "30px" }}>
                   <TextField
-                    label="FatherName"
-                    placeholder="Enter FatherName"
+                    label="Total Rooms"
+                    placeholder="Enter Total Rooms"
                     variant="outlined"
                     required
                     type="text"
@@ -108,6 +108,23 @@ export default function TenantSignUp() {
                     type="password"
                   />
                 </Grid>
+                <Grid
+                  item
+                  lg={6}
+                  style={{
+                    marginTop: "30px",
+                  }}
+                >
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Address"
+                    multiline
+                    rows={3}
+                    sx={{ width: 220 }}
+                    required
+                  />
+                </Grid>
+
                 <Grid item lg={12} style={{ marginTop: "60px" }}>
                   <Button
                     style={btnStyle}
@@ -117,7 +134,7 @@ export default function TenantSignUp() {
                     onClick={() =>
                       router.push({
                         pathname: "/Login-Tabs",
-                        query: { activeTab: "tenant" },
+                        query: { activeTab: "hotel" },
                       })
                     }
                   >

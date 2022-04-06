@@ -10,9 +10,9 @@ function LandingPageTwo() {
       backgroundImage: `url(${image.src})`,
       backgroundSize: "cover",
       filter: "brightness(0.8)",
-      marginTop: "66px",
+      marginTop: "64px",
       width: "100%",
-      height: "900px",
+      height: "905px",
     },
   };
 
