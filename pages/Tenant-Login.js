@@ -93,6 +93,7 @@ export default function TenantLogin() {
               variant="contained"
               color="primary"
               fullWidth
+              onClick={() => router.push("/Tenant-Dashboard")}
             >
               Sign In
             </Button>
