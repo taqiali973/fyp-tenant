@@ -42,7 +42,7 @@ export default function LandingPage() {
                 alignItems: "center",
               }}
             >
-              <Typography style={{ marginLeft: "85%" }}>
+              <div style={{ marginLeft: "90%" }}>
                 <AccountCircleIcon
                   style={{
                     fontSize: "40px",
@@ -50,7 +50,7 @@ export default function LandingPage() {
                   }}
                   onClick={() => router.push("/Login-Tabs")}
                 />
-              </Typography>
+              </div>
             </Grid>
           </Grid>
         </Toolbar>

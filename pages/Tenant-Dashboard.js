@@ -7,8 +7,14 @@ import Avatar from "@mui/material/Avatar";
 import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import RemoveIcon from "@mui/icons-material/Remove";
+import DoneIcon from "@mui/icons-material/Done";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import { useRouter } from "next/router";
 
 export default function TenantDashboard() {
+  const router = useRouter();
+
   const paperStyle = {
     padding: 30,
     borderRadius: "20px",
@@ -74,8 +80,19 @@ export default function TenantDashboard() {
                       display: "flex",
                     }}
                   >
-                    <div style={{ width: "50%" }}>
+                    <div style={{ width: "50%", display: "flex" }}>
                       <Typography variant="h4">Residency</Typography>
+                      <div style={{ marginLeft: "10px" }}>
+                        <Avatar style={avatarStyle}>
+                          <DoneIcon />
+                        </Avatar>
+                      </div>
+
+                      <div style={{ marginLeft: "5px" }}>
+                        <Avatar style={avatarStyle}>
+                          <WarningAmberIcon />
+                        </Avatar>
+                      </div>
                     </div>
                     <div
                       style={{
@@ -84,17 +101,30 @@ export default function TenantDashboard() {
                         justifyContent: "flex-end",
                       }}
                     >
-                      <Avatar style={avatarStyle}>
-                        <AddIcon />
-                      </Avatar>
+                      <div style={{ marginRight: "5px" }}>
+                        <Avatar style={avatarStyle}>
+                          <AddIcon
+                            onClick={() => router.push("/Add-Residency")}
+                          />
+                        </Avatar>
+                      </div>
+
+                      <div>
+                        <Avatar style={avatarStyle}>
+                          <RemoveIcon />
+                        </Avatar>
+                      </div>
                     </div>
                   </div>
+
                   <div
                     style={{
-                      display: "flex",
-                      marginLeft: "50px",
+                      marginTop: "20px",
+                      paddingLeft: "20px",
                     }}
-                  ></div>
+                  >
+                    <Typography variant="h5">No Residency Added</Typography>
+                  </div>
                 </Paper>
               </div>
             </div>
@@ -111,45 +141,49 @@ export default function TenantDashboard() {
                     Change Password
                   </Typography>
                 </div>
-                <div
-                  style={{
-                    marginTop: "30px",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
+
+                <div>
                   <form>
-                    <TextField
-                      label=" Old_Password"
-                      placeholder="Enter Old_Password"
-                      variant="outlined"
-                      type="password"
-                      required
-                      sx={{ width: 400, marginBottom: "30px" }}
-                    />
-                    <TextField
-                      label=" New_Password"
-                      placeholder="Enter New_Password"
-                      variant="outlined"
-                      type="password"
-                      required
-                      sx={{ width: 400, marginBottom: "30px" }}
-                    />
-                    <TextField
-                      label=" Repeat_Password"
-                      placeholder="Repeat_Password"
-                      variant="outlined"
-                      type="password"
-                      required
-                      sx={{ width: 400, marginBottom: "30px" }}
-                    />
+                    <div>
+                      <TextField
+                        label=" Old_Password"
+                        placeholder="Enter Old_Password"
+                        variant="outlined"
+                        type="password"
+                        required
+                        sx={{ width: 400, margin: "10px 20px" }}
+                      />
+                    </div>
+
+                    <div>
+                      <TextField
+                        label=" New_Password"
+                        placeholder="Enter New_Password"
+                        variant="outlined"
+                        type="password"
+                        required
+                        sx={{ width: 400, margin: "10px 20px" }}
+                      />
+                    </div>
+
+                    <div>
+                      <TextField
+                        label=" Repeat_Password"
+                        placeholder="Repeat_Password"
+                        variant="outlined"
+                        type="password"
+                        required
+                        sx={{ width: 400, margin: "10px 20px" }}
+                      />
+                    </div>
                     <Button
+                      style={{ background: "grey", color: "#fff" }}
                       type="submit"
                       variant="contained"
-                      sx={{ background: "grey" }}
+                      color="primary"
                       fullWidth
                     >
-                      change
+                      Sign In
                     </Button>
                   </form>
                 </div>
