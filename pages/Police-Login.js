@@ -39,7 +39,6 @@ export default function PoliceLogin() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          // backgroundColor: "#f3eded",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
