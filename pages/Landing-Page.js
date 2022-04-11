@@ -10,7 +10,6 @@ export default function LandingPage() {
   const router = useRouter();
   return (
     <div>
-      <LandingPage />
       <AppBar style={{ background: "#343434" }}>
         <Toolbar>
           <Grid container>

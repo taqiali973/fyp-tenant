@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
+import LandingPage from "./Landing-Page";
 
 export default function AddResidency() {
   const router = useRouter();
@@ -24,6 +25,7 @@ export default function AddResidency() {
         height: "100vh",
       }}
     >
+      <LandingPage />
       <div>
         <Paper elevation={10}>
           <Grid container>
