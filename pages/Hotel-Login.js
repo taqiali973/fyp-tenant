@@ -6,9 +6,9 @@ import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useRouter } from "next/router";
 
 import HotelIcon from "@mui/icons-material/Hotel";
-import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
 
@@ -95,6 +95,7 @@ export default function HotelLogin() {
               variant="contained"
               color="primary"
               fullWidth
+              onClick={() => router.push("/Hotel-Dashboard")}
             >
               Sign In
             </Button>
