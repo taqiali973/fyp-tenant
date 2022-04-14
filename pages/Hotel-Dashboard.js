@@ -11,7 +11,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import GuestList from "./Guest-List";
 import Link from "@mui/material/Link";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { useRouter } from "next/router";
+
 export default function HotelDashboard() {
+  const router = useRouter();
+
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -159,9 +163,7 @@ export default function HotelDashboard() {
                     component="button"
                     variant="body2"
                     sx={{ textDecoration: "none" }}
-                    onClick={() => {
-                      console.info("I'm a button.");
-                    }}
+                    onClick={() => router.push("/View-Guest-History")}
                   >
                     View Guest History
                     <KeyboardDoubleArrowRightIcon />
