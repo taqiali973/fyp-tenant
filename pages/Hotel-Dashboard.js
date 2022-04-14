@@ -9,7 +9,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import GuestList from "./Guest-List";
-
+import Link from "@mui/material/Link";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 export default function HotelDashboard() {
   const [open, setOpen] = useState(false);
 
@@ -115,9 +116,58 @@ export default function HotelDashboard() {
             </Paper>
           </Grid>
         </Grid>
-        <div style={{ marginTop: "40px" }}>
-          <Grid container sx={{ width: "90%", margin: "0 auto" }}>
+        <div style={{ marginTop: "40px", height: "500px" }}>
+          <Grid
+            container
+            sx={{ width: "80%", margin: "0 auto", height: "900px" }}
+          >
             <Grid item lg={12}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "30px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "45%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      background: "grey",
+                      color: "#fff",
+                      padding: "20px",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    Guest List
+                  </Typography>
+                </div>
+                <div
+                  style={{
+                    width: "40%",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Link
+                    component="button"
+                    variant="body2"
+                    sx={{ textDecoration: "none" }}
+                    onClick={() => {
+                      console.info("I'm a button.");
+                    }}
+                  >
+                    View Guest History
+                    <KeyboardDoubleArrowRightIcon />
+                  </Link>
+                </div>
+              </div>
               <GuestList />
             </Grid>
           </Grid>
