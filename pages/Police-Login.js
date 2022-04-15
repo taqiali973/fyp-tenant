@@ -5,10 +5,21 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
+import { inputLabelClasses } from "@mui/material/InputLabel";
+
+// import { makeStyles } from "@mui/styles";
 
 import { useForm } from "react-hook-form";
+// const useStyles = makeStyles({
+//   root: {
+//     "& .MuiFormLabel-root": {
+//       backgroundColor: "red", // or black
+//     },
+//   },
+// });
 
 export default function PoliceLogin() {
+  // const classes = useStyles();
   const {
     register,
     handleSubmit,
@@ -23,14 +34,17 @@ export default function PoliceLogin() {
     padding: 30,
     width: 500,
     borderRadius: "30px",
+    background: "#d7d7d7",
   };
 
   const avatarStyle = {
-    backgroundColor: "#1a1515",
+    background: "rgb(80 74 74)",
   };
   const btnStyle = {
     margin: "10px 0",
+    background: "rgb(80 74 74)",
   };
+
   return (
     <div>
       <Grid
@@ -39,6 +53,7 @@ export default function PoliceLogin() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "10%",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
@@ -46,7 +61,9 @@ export default function PoliceLogin() {
             <Avatar style={avatarStyle}>
               <LocalPoliceIcon />
             </Avatar>
-            <h4 style={{ marginTop: "10px" }}>Sign In</h4>
+            <h4 style={{ marginTop: "10px", color: "rgb(80 74 74)" }}>
+              Sign In
+            </h4>
           </Grid>
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -56,6 +73,14 @@ export default function PoliceLogin() {
               variant="outlined"
               fullWidth
               required
+              InputLabelProps={{
+                sx: {
+                  color: "black",
+                  [`&.${inputLabelClasses.shrink}`]: {
+                    color: "black",
+                  },
+                },
+              }}
               type="email"
               {...register("username", {
                 required: "username is required",
@@ -75,6 +100,14 @@ export default function PoliceLogin() {
               variant="outlined"
               type="password"
               fullWidth
+              InputLabelProps={{
+                sx: {
+                  color: "black",
+                  [`&.${inputLabelClasses.shrink}`]: {
+                    color: "black",
+                  },
+                },
+              }}
               required
               {...register("password", {
                 required: "password is required",

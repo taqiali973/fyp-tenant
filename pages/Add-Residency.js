@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import LandingPage from "./Landing-Page";
+import HouseIcon from "@mui/icons-material/House";
 
 export default function AddResidency() {
   const router = useRouter();
@@ -14,7 +15,6 @@ export default function AddResidency() {
     padding: 30,
     width: 700,
     height: "70%",
-    borderRadius: "30px",
   };
   return (
     <div
@@ -23,20 +23,44 @@ export default function AddResidency() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        background: "rgb(141 136 136)",
       }}
     >
       <LandingPage />
       <div>
-        <Paper elevation={10}>
+        <Paper elevation={10} sx={{ borderRadius: "30px" }}>
           <Grid container>
-            <Grid item lg={12}>
-              <Typography
-                align="center"
-                variant="h5"
-                style={{ marginTop: "20px" }}
+            <Grid
+              item
+              lg={12}
+              sx={{
+                background: " rgb(79, 79, 79)",
+                padding: "20px",
+                display: "flex",
+              }}
+            >
+              <div
+                style={{
+                  width: "60%",
+
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
               >
-                Add Residency
-              </Typography>
+                <Typography variant="h5" sx={{ color: "#fff" }}>
+                  Add Residency
+                </Typography>
+              </div>
+              <div style={{ width: "40%" }}>
+                <HouseIcon
+                  sx={{
+                    fontSize: "30px",
+                    marginLeft: "5px",
+                    marginTop: "1px",
+                    color: "#fff",
+                  }}
+                />
+              </div>
             </Grid>
           </Grid>
           <Grid container style={paperStyle}>
@@ -117,9 +141,8 @@ export default function AddResidency() {
                   <Grid item lg={12} style={{ marginTop: "60px" }}>
                     <Typography align="center">
                       <Button
-                        type="submit"
+                        sx={{ background: " rgb(79, 79, 79)" }}
                         variant="contained"
-                        color="primary"
                         onClick={() => router.push("/Tenant-Dashboard")}
                       >
                         Submit

@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
+import { inputLabelClasses } from "@mui/material/InputLabel";
 
 import { useForm } from "react-hook-form";
 
@@ -27,13 +28,15 @@ export default function TenantLogin() {
     padding: 30,
     width: 500,
     borderRadius: "30px",
+    background: "#d7d7d7",
   };
 
   const avatarStyle = {
-    backgroundColor: "#1a1515",
+    background: "rgb(80 74 74)",
   };
   const btnStyle = {
     margin: "10px 0",
+    background: "rgb(80 74 74)",
   };
   return (
     <div>
@@ -43,6 +46,8 @@ export default function TenantLogin() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+
+          marginTop: "10%",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
@@ -50,7 +55,9 @@ export default function TenantLogin() {
             <Avatar style={avatarStyle}>
               <AccountCircleIcon />
             </Avatar>
-            <h4 style={{ marginTop: "10px" }}>Sign In</h4>
+            <h4 style={{ marginTop: "10px", color: "rgb(80 74 74)" }}>
+              Sign In
+            </h4>
           </Grid>
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -59,6 +66,14 @@ export default function TenantLogin() {
               placeholder="Enter Username"
               variant="outlined"
               fullWidth
+              InputLabelProps={{
+                sx: {
+                  color: "black",
+                  [`&.${inputLabelClasses.shrink}`]: {
+                    color: "black",
+                  },
+                },
+              }}
               required
               type="email"
               {...register("username", {
@@ -79,6 +94,14 @@ export default function TenantLogin() {
               variant="outlined"
               type="password"
               fullWidth
+              InputLabelProps={{
+                sx: {
+                  color: "black",
+                  [`&.${inputLabelClasses.shrink}`]: {
+                    color: "black",
+                  },
+                },
+              }}
               required
               {...register("password", {
                 required: "password is required",
@@ -98,12 +121,12 @@ export default function TenantLogin() {
               Sign In
             </Button>
           </form>
-          <Typography style={{ marginBottom: "3px" }}>
+          <Typography style={{ marginTop: "10px" }}>
             <Link style={{ textDecoration: "none", cursor: "pointer" }}>
               Forgot Password?
             </Link>
           </Typography>
-          <Typography>
+          <Typography style={{ marginTop: "10px" }}>
             Don't have an account?
             <Link
               style={{ textDecoration: "none", cursor: "pointer" }}

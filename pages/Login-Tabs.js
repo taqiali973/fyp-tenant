@@ -29,7 +29,7 @@ function loginTabs() {
     setValue(value);
   };
   return (
-    <div>
+    <div style={{ background: "rgb(105 98 98)" }}>
       <LandingPage />
       <Grid
         container
@@ -44,7 +44,7 @@ function loginTabs() {
           <AppBar
             position="static"
             style={{
-              background: "lightgrey",
+              background: "rgb(79 79 79)",
             }}
           >
             <Tabs
@@ -54,17 +54,32 @@ function loginTabs() {
                 width: "60%",
                 margin: "0 auto",
               }}
+              TabIndicatorProps={{
+                sx: {
+                  backgroundColor: "#dbdbdb",
+                },
+              }}
             >
               <Tab
-                icon={<AccountCircleIcon style={{ fontSize: "40px" }} />}
+                icon={
+                  <AccountCircleIcon
+                    style={{ fontSize: "40px", color: "#dbdbdb" }}
+                  />
+                }
                 aria-label="tenant"
               />
               <Tab
-                icon={<LocalPoliceIcon style={{ fontSize: "40px" }} />}
+                icon={
+                  <LocalPoliceIcon
+                    style={{ fontSize: "40px", color: "#dbdbdb" }}
+                  />
+                }
                 aria-label="police"
               />
               <Tab
-                icon={<HotelIcon style={{ fontSize: "40px" }} />}
+                icon={
+                  <HotelIcon style={{ fontSize: "40px", color: "#dbdbdb" }} />
+                }
                 aria-label="hotel"
               />
             </Tabs>
