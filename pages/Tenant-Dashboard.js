@@ -33,7 +33,7 @@ export default function TenantDashboard() {
       <div
         style={{
           marginTop: "-36px",
-          height: "90vh",
+
           background: "rgb(141 136 136)",
           height: "94vh",
         }}
@@ -48,7 +48,6 @@ export default function TenantDashboard() {
           <div
             style={{
               width: "50%",
-              // border: "2px solid green",
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "center",

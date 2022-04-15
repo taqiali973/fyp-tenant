@@ -97,11 +97,11 @@ const rows = [
 export default function GuestList() {
   return (
     <div>
-      <Paper elevation={10}>
+      <Paper elevation={10} sx={{ borderRadius: "20px" }}>
         <div>
           <TableContainer>
             <Table>
-              <TableHead sx={{ background: "grey" }}>
+              <TableHead sx={{ background: "rgb(79 79 79)" }}>
                 <TableRow>
                   <TableCell
                     sx={{
@@ -209,7 +209,7 @@ export default function GuestList() {
                       }}
                     >
                       <IconButton aria-label="accept" component="span">
-                        <DeleteIcon />
+                        <DeleteIcon sx={{ color: "rgb(79 79 79)" }} />
                       </IconButton>
                     </TableCell>
                   </TableRow>

@@ -82,16 +82,16 @@ export default function PoliceLogin() {
                 },
               }}
               type="email"
-              {...register("username", {
-                required: "username is required",
-                pattern: {
-                  value:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "Invalid Email Address",
-                },
-              })}
-              error={!!errors?.username}
-              helperText={errors?.username ? errors.username.message : null}
+              // {...register("username", {
+              //   required: "username is required",
+              //   pattern: {
+              //     value:
+              //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              //     message: "Invalid Email Address",
+              //   },
+              // })}
+              // error={!!errors?.username}
+              // helperText={errors?.username ? errors.username.message : null}
               style={{ marginBottom: "20px" }}
             />
             <TextField
@@ -109,11 +109,11 @@ export default function PoliceLogin() {
                 },
               }}
               required
-              {...register("password", {
-                required: "password is required",
-              })}
-              error={!!errors?.password}
-              helperText={errors?.password ? errors.password.message : null}
+              // {...register("password", {
+              //   required: "password is required",
+              // })}
+              // error={!!errors?.password}
+              // helperText={errors?.password ? errors.password.message : null}
             />
             {/* Button */}
             <Button
