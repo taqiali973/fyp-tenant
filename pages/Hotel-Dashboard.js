@@ -57,6 +57,7 @@ export default function HotelDashboard() {
                 marginTop: "20px",
                 borderRadius: "17px",
                 padding: "15px",
+                fontFamily: "cursive",
               }}
               type="submit"
               variant="contained"
@@ -89,7 +90,7 @@ export default function HotelDashboard() {
                 <div style={{ display: "flex", marginTop: "20px" }}>
                   <div
                     style={{
-                      width: "50%",
+                      width: "30%",
                     }}
                   >
                     <Typography
@@ -99,6 +100,8 @@ export default function HotelDashboard() {
                         background: "rgb(79 79 79)",
                         color: "#fff",
                         padding: "20px",
+                        fontFamily: "cursive",
+                        borderRadius: "20px",
                       }}
                     >
                       Hotel Information
@@ -114,7 +117,11 @@ export default function HotelDashboard() {
                   >
                     <Button
                       variant="contained"
-                      style={{ background: "rgb(79 79 79)" }}
+                      style={{
+                        background: "rgb(79 79 79)",
+                        fontFamily: "cursive",
+                        borderRadius: "20px",
+                      }}
                       onClick={handleClickOpen}
                     >
                       <AddIcon style={{ marginRight: "5px" }} />
@@ -129,6 +136,7 @@ export default function HotelDashboard() {
                       style={{
                         width: "50%",
                         padding: "30px",
+                        fontFamily: "cursive",
                       }}
                     >
                       <div style={{ display: "flex" }}>
@@ -144,7 +152,7 @@ export default function HotelDashboard() {
                         </p>
                       </div>
 
-                      <div style={{ display: "flex" }}>
+                      <div style={{ display: "flex", fontFamily: "cursive" }}>
                         <h3>Verification Status : </h3>
                         <p style={{ marginTop: "22px", marginLeft: "10px" }}>
                           verified
@@ -161,6 +169,7 @@ export default function HotelDashboard() {
                       style={{
                         width: "50%",
                         padding: "20px",
+                        fontFamily: "cursive",
                       }}
                     >
                       <div style={{ display: "flex" }}>
@@ -193,28 +202,35 @@ export default function HotelDashboard() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid
-                    item
-                    lg={12}
-                    sx={{ borderTop: "2px solid black", padding: "20px" }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        background: "rgb(79 79 79)",
-                        color: "#fff",
-                        padding: "20px",
+                  <Grid item lg={12} sx={{ padding: "20px" }}>
+                    <div style={{ width: "35%" }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          background: "rgb(79 79 79)",
+                          color: "#fff",
+                          padding: "20px",
+                          fontFamily: "cursive",
+                          borderRadius: "20px",
+                          marginLeft: "30px",
+                        }}
+                      >
+                        Owner Information
+                        <PersonIcon
+                          sx={{
+                            fontSize: "30px",
+                            marginLeft: "10px",
+                          }}
+                        />
+                      </Typography>
+                    </div>
+                    <div
+                      style={{
+                        marginTop: "30px",
+                        paddingLeft: "65px",
+                        fontFamily: "cursive",
                       }}
                     >
-                      Owner Information
-                      <PersonIcon
-                        sx={{
-                          fontSize: "30px",
-                          marginLeft: "10px",
-                        }}
-                      />
-                    </Typography>
-                    <div style={{ marginTop: "30px", paddingLeft: "15px" }}>
                       <div style={{ display: "flex" }}>
                         <h3>Onwer Name: </h3>
                         <p style={{ marginTop: "22px", marginLeft: "10px" }}>
@@ -276,9 +292,10 @@ export default function HotelDashboard() {
                         background: "rgb(79 79 79)",
                         color: "#fff",
                         padding: "10px",
-                        borderRadius: "5px",
+                        borderRadius: "20px",
                         letterSpacing: "1px",
                         wordSpacing: "2px",
+                        fontFamily: "cursive",
                       }}
                     >
                       Guest List
@@ -296,7 +313,9 @@ export default function HotelDashboard() {
                       sx={{
                         background: "rgb(79 79 79)",
                         color: "#fff",
+                        borderRadius: "20px",
                         padding: "20px",
+                        fontFamily: "cursive",
                       }}
                     >
                       View Guest History
@@ -321,7 +340,7 @@ export default function HotelDashboard() {
             background: "rgb(79 79 79)",
           }}
         >
-          <Typography variant="h5">
+          <Typography variant="h5" sx={{ fontFamily: "cursive" }}>
             Add Guest
             <PersonIcon sx={{ marginLeft: "10px" }} />
           </Typography>
@@ -366,14 +385,14 @@ export default function HotelDashboard() {
         <DialogActions sx={{ paddingRight: "30px" }}>
           <Button
             onClick={handleClose}
-            sx={{ background: "rgb(79 79 79)" }}
+            sx={{ background: "rgb(79 79 79)", fontFamily: "cursive" }}
             variant="contained"
           >
             Cancel
           </Button>
           <Button
             onClick={handleClose}
-            sx={{ background: "rgb(79 79 79)" }}
+            sx={{ background: "rgb(79 79 79)", fontFamily: "cursive" }}
             variant="contained"
           >
             Add

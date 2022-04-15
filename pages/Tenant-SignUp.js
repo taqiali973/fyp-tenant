@@ -17,6 +17,7 @@ export default function TenantSignUp() {
     width: 700,
     height: "60%",
     borderRadius: "30px",
+    background: "rgb(242 238 238)",
   };
 
   const avatarStyle = {
@@ -39,6 +40,8 @@ export default function TenantSignUp() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+
+          background: "rgb(141 136 136)",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
@@ -46,7 +49,14 @@ export default function TenantSignUp() {
             <Avatar style={avatarStyle}>
               <AccountCircleIcon />
             </Avatar>
-            <Typography variant="h5">Sign Up</Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                fontFamily: "cursive",
+              }}
+            >
+              Sign Up
+            </Typography>
             <form autoComplete="off" noValidate>
               <Grid container>
                 <Grid item lg={6} style={{ marginTop: "30px" }}>
@@ -111,9 +121,12 @@ export default function TenantSignUp() {
                 <Grid item lg={12} style={{ marginTop: "60px" }}>
                   <Button
                     style={btnStyle}
+                    sx={{
+                      fontFamily: "cursive",
+                      background: "rgb(79 79 79)",
+                    }}
                     type="submit"
                     variant="contained"
-                    color="primary"
                     onClick={() =>
                       router.push({
                         pathname: "/Login-Tabs",

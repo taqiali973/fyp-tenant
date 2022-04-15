@@ -28,7 +28,7 @@ export default function TenantLogin() {
     padding: 30,
     width: 500,
     borderRadius: "30px",
-    background: "#d7d7d7",
+    background: "rgb(242 238 238)",
   };
 
   const avatarStyle = {
@@ -55,7 +55,13 @@ export default function TenantLogin() {
             <Avatar style={avatarStyle}>
               <AccountCircleIcon />
             </Avatar>
-            <h4 style={{ marginTop: "10px", color: "rgb(80 74 74)" }}>
+            <h4
+              style={{
+                marginTop: "10px",
+                color: "rgb(80 74 74)",
+                fontFamily: "cursive",
+              }}
+            >
               Sign In
             </h4>
           </Grid>
@@ -117,19 +123,26 @@ export default function TenantLogin() {
               color="primary"
               fullWidth
               onClick={() => router.push("/Tenant-Dashboard")}
+              sx={{
+                fontFamily: "cursive",
+              }}
             >
               Sign In
             </Button>
           </form>
-          <Typography style={{ marginTop: "10px" }}>
+          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
             <Link style={{ textDecoration: "none", cursor: "pointer" }}>
               Forgot Password?
             </Link>
           </Typography>
-          <Typography style={{ marginTop: "10px" }}>
+          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
             Don't have an account?
             <Link
-              style={{ textDecoration: "none", cursor: "pointer" }}
+              style={{
+                textDecoration: "none",
+                cursor: "pointer",
+                fontFamily: "cursive",
+              }}
               onClick={() => router.push("/Tenant-SignUp")}
             >
               Sign Up

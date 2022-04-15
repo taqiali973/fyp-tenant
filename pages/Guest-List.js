@@ -109,6 +109,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     Name
@@ -119,6 +120,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     Cnic
@@ -129,6 +131,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     Room No
@@ -139,6 +142,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     Phone
@@ -149,6 +153,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     EntryAt
@@ -159,6 +164,7 @@ export default function GuestList() {
                       fontSize: "18px",
                       textAlign: "center",
                       color: "#fff",
+                      fontFamily: "cursive",
                     }}
                   >
                     Actions

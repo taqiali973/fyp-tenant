@@ -4,6 +4,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+
 import { Toolbar } from "@mui/material";
 
 export default function LandingPage() {
@@ -27,6 +29,9 @@ export default function LandingPage() {
                   letterSpacing: "6px",
                   marginLeft: "50px",
                   cursor: "pointer",
+                  color: "#bfbfb",
+                  fontWeight: "bold",
+                  fontFamily: "cursive",
                 }}
                 onClick={() => router.push("/Main-Landing-Page")}
               >
@@ -43,13 +48,15 @@ export default function LandingPage() {
               }}
             >
               <div style={{ marginLeft: "90%" }}>
-                <AccountCircleIcon
-                  style={{
-                    fontSize: "40px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => router.push("/Login-Tabs")}
-                />
+                <Avatar>
+                  <AccountCircleIcon
+                    style={{
+                      fontSize: "40px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => router.push("/Login-Tabs")}
+                  />
+                </Avatar>
               </div>
             </Grid>
           </Grid>

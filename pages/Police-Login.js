@@ -34,7 +34,7 @@ export default function PoliceLogin() {
     padding: 30,
     width: 500,
     borderRadius: "30px",
-    background: "#d7d7d7",
+    background: "rgb(242 238 238)",
   };
 
   const avatarStyle = {
@@ -61,7 +61,13 @@ export default function PoliceLogin() {
             <Avatar style={avatarStyle}>
               <LocalPoliceIcon />
             </Avatar>
-            <h4 style={{ marginTop: "10px", color: "rgb(80 74 74)" }}>
+            <h4
+              style={{
+                marginTop: "10px",
+                color: "rgb(80 74 74)",
+                fontFamily: "cursive",
+              }}
+            >
               Sign In
             </h4>
           </Grid>
@@ -118,6 +124,7 @@ export default function PoliceLogin() {
             {/* Button */}
             <Button
               style={btnStyle}
+              sx={{ fontFamily: "cursive" }}
               type="submit"
               variant="contained"
               color="primary"

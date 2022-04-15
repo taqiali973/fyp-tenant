@@ -150,7 +150,10 @@ export default function ViewGuestHistory() {
               borderRadius: "20px",
             }}
           >
-            <Typography variant="h6" sx={{ color: "#fff" }}>
+            <Typography
+              variant="h6"
+              sx={{ color: "#fff", fontFamily: "cursive" }}
+            >
               View-Guest-History
             </Typography>
             <RemoveRedEyeIcon
@@ -197,6 +200,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               Name
@@ -207,6 +211,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               Cnic
@@ -217,6 +222,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               Room No
@@ -227,6 +233,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               Phone
@@ -237,6 +244,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               EntryAt
@@ -247,6 +255,7 @@ export default function ViewGuestHistory() {
                                 fontSize: "18px",
                                 textAlign: "center",
                                 color: "#fff",
+                                fontFamily: "cursive",
                               }}
                             >
                               ExitAt

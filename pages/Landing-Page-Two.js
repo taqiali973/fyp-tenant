@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import image from "../public/images/image.jpeg";
 import Button from "@mui/material/Button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import SecurityIcon from "@mui/icons-material/Security";
 
 function LandingPageTwo() {
   const styles = {
@@ -27,16 +28,21 @@ function LandingPageTwo() {
         >
           <Typography
             align="center"
-            variant="h3"
+            variant="h4"
             style={{
               marginTop: "10%",
-              color: "#FFFFFF",
+              color: "rgb(255 255 255)",
               fontWeight: "bold",
               letterSpacing: "2px",
               wordSpacing: "3px",
+              background: "rgb(79 79 79)",
+              padding: "20px",
+              borderRadius: "13px",
+              fontFamily: "cursive",
             }}
           >
             TENANT REGISTRATION & VERIFICATION SYSTEM
+            <SecurityIcon sx={{ fontSize: "50px", marginLeft: "20px" }} />
           </Typography>
         </div>
         <div
@@ -51,12 +57,13 @@ function LandingPageTwo() {
             align="center"
             variant="h5"
             style={{
-              marginTop: "20px",
-              color: "#FFFFFF",
+              marginTop: "70px",
+              color: "rgb(255 255 255)",
               fontWeight: "bold",
               letterSpacing: "2px",
               wordSpacing: "3px",
               lineHeight: "40px",
+              fontFamily: "cursive",
             }}
           >
             A centralized digital system project will help the Punjab police and
@@ -73,17 +80,41 @@ function LandingPageTwo() {
         </div>
         <div
           style={{
-            width: "90%",
-            margin: "0 auto",
             display: "flex",
             justifyContent: "center",
-            marginTop: "20px",
+            marginTop: "30px",
           }}
         >
-          <Button variant="contained">
-            View Details
-            <KeyboardDoubleArrowRightIcon />
-          </Button>
+          <div
+            style={{
+              width: "80%",
+
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                marginRight: "20px",
+                background: "rgb(79 79 79)",
+                fontWeight: "bold",
+                fontFamily: "cursive",
+              }}
+            >
+              About
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                background: "rgb(79 79 79)",
+                fontWeight: "bold",
+                padding: "10px",
+              }}
+            >
+              Contact
+            </Button>
+          </div>
         </div>
       </div>
     </>
@@ -91,9 +122,3 @@ function LandingPageTwo() {
 }
 
 export default LandingPageTwo;
-
-{
-  /* <div style={{ border: "2px solid red" }}>
-  <h1>Tenant Registration & Verification System</h1>
-</div> */
-}

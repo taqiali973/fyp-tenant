@@ -21,7 +21,7 @@ export default function TenantDashboard() {
   const paperStyle = {
     padding: 30,
     borderRadius: "20px",
-    background: "#d7d7d7",
+    background: "rgb(242 238 238)",
   };
   const avatarStyle = {
     backgroundColor: "rgb(79 79 79)",
@@ -61,6 +61,7 @@ export default function TenantDashboard() {
                 padding: "20px",
                 borderRadius: "20px",
                 marginTop: "20px",
+                fontFamily: "cursive",
               }}
             >
               Dashboard
@@ -82,6 +83,7 @@ export default function TenantDashboard() {
                 marginTop: "20px",
                 borderRadius: "17px",
                 padding: "15px",
+                fontFamily: "cursive",
               }}
               type="submit"
               variant="contained"
@@ -120,6 +122,7 @@ export default function TenantDashboard() {
                       style={{
                         marginLeft: "3%",
                         color: "#fff",
+                        fontFamily: "cursive",
                       }}
                     >
                       Your Information
@@ -136,17 +139,44 @@ export default function TenantDashboard() {
                   <div
                     style={{
                       display: "flex",
-                      marginLeft: "20%",
+                      marginLeft: "10%",
                     }}
                   >
-                    <div>
-                      <h3>Name :</h3>
-                      <h3>Father_Name :</h3>
-                      <h3>Email :</h3>
+                    <div style={{ fontFamily: "cursive" }}>
+                      <div style={{ display: "flex" }}>
+                        <h3>Name: : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          Taqi Ali
+                        </p>
+                      </div>
+
+                      <div style={{ display: "flex" }}>
+                        <h3>Father_Name : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          Mujawar Ali
+                        </p>
+                      </div>
+
+                      <div style={{ display: "flex" }}>
+                        <h3>Email : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          taqiali@gmail.com
+                        </p>
+                      </div>
                     </div>
-                    <div style={{ marginLeft: "30%" }}>
-                      <h3>CNIC :</h3>
-                      <h3>Phone :</h3>
+                    <div style={{ marginLeft: "30%", fontFamily: "cursive" }}>
+                      <div style={{ display: "flex" }}>
+                        <h3>CNIC : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          36790-7654268-9
+                        </p>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <h3>Phone : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          0342-0987633
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Paper>
@@ -161,7 +191,10 @@ export default function TenantDashboard() {
                     }}
                   >
                     <div style={{ width: "50%", display: "flex" }}>
-                      <Typography variant="h4" sx={{ color: "#5f4f4f" }}>
+                      <Typography
+                        variant="h4"
+                        sx={{ color: "#5f4f4f", fontFamily: "cursive" }}
+                      >
                         Residency
                       </Typography>
                       <div style={{ marginLeft: "10px" }}>
@@ -203,18 +236,48 @@ export default function TenantDashboard() {
                     style={{
                       padding: "20px 70px",
                       display: "flex",
-                      marginLeft: "125px",
+                      // marginLeft: "",
                     }}
                   >
-                    <div style={{ width: "50%" }}>
-                      <h3>Type :</h3>
-                      <h3>Owner :</h3>
-                      <h3>Owner_Cnic :</h3>
+                    <div style={{ width: "50%", fontFamily: "cursive" }}>
+                      <div style={{ display: "flex" }}>
+                        <h3>Type : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          Flat
+                        </p>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <h3>Owner: </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          Mohammad Ali
+                        </p>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <h3>Owner Cnic : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          36790-7654268-9
+                        </p>
+                      </div>
                     </div>
-                    <div style={{ width: "50%" }}>
-                      <h3>Phone :</h3>
-                      <h3>Contract :</h3>
-                      <h3>Address :</h3>
+                    <div style={{ width: "50%", fontFamily: "cursive" }}>
+                      <div style={{ display: "flex" }}>
+                        <h3>Phone : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          0342-0987633
+                        </p>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <h3>Contract : </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          2 Months
+                        </p>
+                      </div>{" "}
+                      <div style={{ display: "flex" }}>
+                        <h3>Address </h3>
+                        <p style={{ marginTop: "22px", marginLeft: "10px" }}>
+                          H No 356 Street No 2 Peshawar Road Rawalpindi
+                        </p>
+                      </div>{" "}
                     </div>
                   </div>
                 </Paper>
@@ -239,6 +302,7 @@ export default function TenantDashboard() {
                       marginLeft: "29%",
                       color: "#fff",
                       padding: "7px 0",
+                      fontFamily: "cursive",
                     }}
                   >
                     Change Password
@@ -255,7 +319,7 @@ export default function TenantDashboard() {
 
                 <div>
                   <form>
-                    <div style={{ marginLeft: "40px" }}>
+                    <div style={{ marginLeft: "10px" }}>
                       <TextField
                         label=" Old_Password"
                         placeholder="Enter Old_Password"
@@ -266,7 +330,7 @@ export default function TenantDashboard() {
                       />
                     </div>
 
-                    <div style={{ marginLeft: "40px" }}>
+                    <div style={{ marginLeft: "10px" }}>
                       <TextField
                         label=" New_Password"
                         placeholder="Enter New_Password"
@@ -277,14 +341,17 @@ export default function TenantDashboard() {
                       />
                     </div>
 
-                    <div style={{ marginLeft: "40px" }}>
+                    <div style={{ marginLeft: "10px" }}>
                       <TextField
                         label=" Repeat_Password"
                         placeholder="Repeat_Password"
                         variant="outlined"
                         type="password"
                         required
-                        sx={{ width: 400, margin: "10px 20px" }}
+                        sx={{
+                          width: 400,
+                          margin: "10px 20px",
+                        }}
                       />
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -294,6 +361,7 @@ export default function TenantDashboard() {
                           color: "#fff",
                           marginTop: "20px",
                           borderRadius: "13px",
+                          fontFamily: "cursive",
                         }}
                         type="submit"
                         variant="contained"
