@@ -35,7 +35,7 @@ export default function HotelDashboard() {
         style={{
           marginTop: "-30%",
           height: "100vh",
-          background: "#d7d7d7",
+          background: "rgb(255 255 255)",
           height: "100vh",
           marginTop: "3%",
         }}
@@ -90,13 +90,14 @@ export default function HotelDashboard() {
                 <div style={{ display: "flex", marginTop: "20px" }}>
                   <div
                     style={{
-                      width: "30%",
+                      width: "50%",
+                      border: "2px solid red",
                     }}
                   >
                     <Typography
                       variant="h5"
                       sx={{
-                        marginLeft: "10px",
+                        // marginLeft: "10px",
                         background: "rgb(79 79 79)",
                         color: "#fff",
                         padding: "20px",
@@ -113,9 +114,10 @@ export default function HotelDashboard() {
                       width: "50%",
                       display: "flex",
                       justifyContent: "flex-end",
+                      border: "2px solid red",
                     }}
                   >
-                    <Button
+                    {/* <Button
                       variant="contained"
                       style={{
                         background: "rgb(79 79 79)",
@@ -124,9 +126,9 @@ export default function HotelDashboard() {
                       }}
                       onClick={handleClickOpen}
                     >
-                      <AddIcon style={{ marginRight: "5px" }} />
+                      <AddIcon />
                       Add Guest
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
                 {/* {openModal && <AddGuest closeModal={setOpenModal} />} */}

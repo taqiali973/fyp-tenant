@@ -119,7 +119,7 @@ export default function ViewGuestHistory() {
         style={{
           marginTop: "5%",
           height: "100vh",
-          background: "#d7d7d7",
+          background: "rgb(255 255 255)",
           marginTop: "3%",
           position: "fixed",
           width: "100vw",

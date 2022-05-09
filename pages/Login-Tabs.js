@@ -29,7 +29,7 @@ function loginTabs() {
     setValue(value);
   };
   return (
-    <div style={{ background: "rgb(105 98 98)" }}>
+    <div style={{ background: "rgb(255 255 255)" }}>
       <LandingPage />
       <Grid
         container

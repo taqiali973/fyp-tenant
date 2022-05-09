@@ -34,7 +34,7 @@ export default function TenantDashboard() {
         style={{
           marginTop: "-36px",
 
-          background: "rgb(141 136 136)",
+          background: "rgb(255 255 255)",
           height: "94vh",
         }}
       >
