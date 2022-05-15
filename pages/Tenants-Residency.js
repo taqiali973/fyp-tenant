@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Paper } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,94 +9,150 @@ import TableRow from "@mui/material/TableRow";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 
-function createData(id, name, cnic, room_no, phone, entryAt) {
-  return { id, name, cnic, room_no, phone, entryAt };
+function createData(
+  id,
+  address,
+  owner_name,
+  owner_father,
+  owner_cnic,
+  owner_phone,
+  entry_date,
+  exit_date
+) {
+  return {
+    id,
+    address,
+    owner_name,
+    owner_father,
+    owner_cnic,
+    owner_phone,
+    entry_date,
+    exit_date,
+  };
 }
 const rows = [
   createData(
     1,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     2,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     3,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     4,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     5,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     6,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     7,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     8,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     9,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
   createData(
     10,
-    "Ali Ahmed",
+    "Peshawar Road Rawalpindi",
+    "Talha khan",
+    "Mohammad Taha",
     "37405 - 7512586 - 9",
-    "22",
     "03427654313",
-    "3:00pm"
+
+    "12-2-2022",
+    "22-4-2022"
   ),
 ];
-export default function GuestList() {
+export default function TenantsResidency() {
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "40px",
+        width: "90%",
+        marginTop: "30px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
       <Paper
         elevation={10}
         sx={{ borderRadius: "20px", bgcolor: "rgb(241,241,241)" }}
@@ -115,7 +171,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Name
+                    Address
                   </TableCell>
                   <TableCell
                     sx={{
@@ -126,7 +182,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Cnic
+                    Owner name
                   </TableCell>
                   <TableCell
                     sx={{
@@ -137,7 +193,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Room No
+                    Owner Father
                   </TableCell>
                   <TableCell
                     sx={{
@@ -148,7 +204,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Phone
+                    Owner Cnic
                   </TableCell>
                   <TableCell
                     sx={{
@@ -159,7 +215,29 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    EntryAt
+                    Owner Phone
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      textAlign: "center",
+                      color: "#fff",
+                      fontFamily: "cursive",
+                    }}
+                  >
+                    EntryDate
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      textAlign: "center",
+                      color: "#fff",
+                      fontFamily: "cursive",
+                    }}
+                  >
+                    ExitDate
                   </TableCell>
                   <TableCell
                     sx={{
@@ -182,35 +260,49 @@ export default function GuestList() {
                         textAlign: "center",
                       }}
                     >
-                      {row.name}
+                      {row.address}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.cnic}
+                      {row.owner_name}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.room_no}
+                      {row.owner_father}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.phone}
+                      {row.owner_cnic}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.entryAt}
+                      {row.owner_phone}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: "center",
+                      }}
+                    >
+                      {row.entry_date}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        textAlign: "center",
+                      }}
+                    >
+                      {row.exit_date}
                     </TableCell>
                     <TableCell
                       sx={{

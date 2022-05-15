@@ -310,7 +310,7 @@ export default function HotelDashboard() {
                       justifyContent: "flex-end",
                     }}
                   >
-                    <Button
+                    <Typography
                       onClick={() => router.push("/View-Guest-History")}
                       sx={{
                         background: "rgb(79 79 79)",
@@ -321,8 +321,8 @@ export default function HotelDashboard() {
                       }}
                     >
                       View Guest History
-                      <KeyboardDoubleArrowRightIcon />
-                    </Button>
+                      {/* <KeyboardDoubleArrowRightIcon /> */}
+                    </Typography>
                   </div>
                 </div>
                 <GuestList />

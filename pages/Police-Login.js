@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import { inputLabelClasses } from "@mui/material/InputLabel";
+import { useRouter } from "next/router";
 
 // import { makeStyles } from "@mui/styles";
 
@@ -19,7 +20,8 @@ import { useForm } from "react-hook-form";
 // });
 
 export default function PoliceLogin() {
-  // const classes = useStyles();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -129,6 +131,7 @@ export default function PoliceLogin() {
               variant="contained"
               color="primary"
               fullWidth
+              onClick={() => router.push("/Police-dashboard")}
             >
               Sign In
             </Button>

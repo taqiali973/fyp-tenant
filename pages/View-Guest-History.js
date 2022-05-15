@@ -164,23 +164,6 @@ export default function ViewGuestHistory() {
                 background: "rgb(79 79 79)",
               }}
             />
-            {/* <div
-              style={{
-                width: "45%",
-
-                display: "flex",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Typography variant="h6" sx={{ color: "#fff" }}>
-                View-Guest-History
-              </Typography>
-            </div>
-            <div style={{ width: "45%" }}>
-              <PreviewIcon
-                sx={{ marginLeft: "10px", fontSize: "30px", color: "#fff" }}
-              />
-            </div> */}
           </div>
           <Grid
             container

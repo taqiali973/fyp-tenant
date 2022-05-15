@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Paper } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,94 +9,130 @@ import TableRow from "@mui/material/TableRow";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 
-function createData(id, name, cnic, room_no, phone, entryAt) {
-  return { id, name, cnic, room_no, phone, entryAt };
+function createData(
+  id,
+  hotel_name,
+  hotel_email,
+  hotel_phone,
+  total_rooms,
+  address,
+  current_guests
+) {
+  return {
+    id,
+    hotel_name,
+    hotel_email,
+    hotel_phone,
+    total_rooms,
+    address,
+    current_guests,
+  };
 }
 const rows = [
   createData(
     1,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     2,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+
+    "40"
   ),
   createData(
     3,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     4,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     5,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     6,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+
+    "40"
   ),
   createData(
     7,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     8,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     9,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
   createData(
     10,
-    "Ali Ahmed",
-    "37405 - 7512586 - 9",
-    "22",
+    "Pearl Continental",
+    "pc123@gmail.com",
     "03427654313",
-    "3:00pm"
+    "70",
+    "Saddar Rawalpindi",
+    "40"
   ),
 ];
-export default function GuestList() {
+export default function Hotels() {
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "40px",
+        width: "90%",
+        marginTop: "30px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
       <Paper
         elevation={10}
         sx={{ borderRadius: "20px", bgcolor: "rgb(241,241,241)" }}
@@ -115,7 +151,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Name
+                    Name{" "}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -126,7 +162,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Cnic
+                    Email
                   </TableCell>
                   <TableCell
                     sx={{
@@ -137,7 +173,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Room No
+                    Phone{" "}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -148,7 +184,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Phone
+                    Total Rooms{" "}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -159,7 +195,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    EntryAt
+                    Address{" "}
                   </TableCell>
                   <TableCell
                     sx={{
@@ -170,7 +206,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Actions
+                    Guests
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -182,44 +218,42 @@ export default function GuestList() {
                         textAlign: "center",
                       }}
                     >
-                      {row.name}
+                      {row.hotel_name}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.cnic}
+                      {row.hotel_email}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.room_no}
+                      {row.hotel_phone}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.phone}
+                      {row.total_rooms}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      {row.entryAt}
+                      {row.address}
                     </TableCell>
                     <TableCell
                       sx={{
                         textAlign: "center",
                       }}
                     >
-                      <IconButton aria-label="accept" component="span">
-                        <DeleteIcon sx={{ color: "red" }} />
-                      </IconButton>
+                      {row.current_guests}
                     </TableCell>
                   </TableRow>
                 ))}

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Paper } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -17,86 +17,94 @@ const rows = [
     1,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     2,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     3,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     4,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     5,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     6,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     7,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     8,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     9,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
   createData(
     10,
     "Ali Ahmed",
     "37405 - 7512586 - 9",
-    "22",
+    "Mohammad Taha",
     "03427654313",
-    "3:00pm"
+    "tenant@gmail.com"
   ),
 ];
-export default function GuestList() {
+export default function StationInfo() {
   return (
-    <div>
+    <div
+      style={{
+        marginTop: "40px",
+        width: "90%",
+        marginTop: "30px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
       <Paper
         elevation={10}
         sx={{ borderRadius: "20px", bgcolor: "rgb(241,241,241)" }}
@@ -137,7 +145,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    Room No
+                    Father Name
                   </TableCell>
                   <TableCell
                     sx={{
@@ -159,7 +167,7 @@ export default function GuestList() {
                       fontFamily: "cursive",
                     }}
                   >
-                    EntryAt
+                    Email
                   </TableCell>
                   <TableCell
                     sx={{
