@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import LandingPage from "./Landing-Page";
+import React from "react";
+import NavBar from "./Landing-Pages/Nav-Bar";
 import Grid from "@mui/material/Grid";
 import StationInfo from "./Station-Info";
-import Tenants from "./Tenants";
-import Hotels from "./Hotels";
 import { Paper, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
-import TenantsResidency from "./Tenants-Residency";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import PersonIcon from "@mui/icons-material/Person";
 import HotelIcon from "@mui/icons-material/Hotel";
 import LockResetIcon from "@mui/icons-material/LockReset";
+// import HotelList from "./policeHotel";
+import { useRouter } from "next/router";
 
 export default function PoliceDashboard() {
-  const [value, setValue] = useState(0);
+  const router = useRouter();
 
   return (
     <div>
-      <LandingPage />
+      <NavBar />
       <div
         style={{
           width: "100%",
@@ -45,7 +44,8 @@ export default function PoliceDashboard() {
               <Link
                 component="button"
                 variant="h6"
-                onClick={() => setValue(1)}
+                // onClick={() => setValue(1)}
+                onClick={() => router.push("/Tenants")}
                 style={{ textDecoration: "none", color: "#fff" }}
               >
                 Tenants
@@ -70,7 +70,7 @@ export default function PoliceDashboard() {
               <Link
                 component="button"
                 variant="h6"
-                onClick={() => setValue(3)}
+                onClick={() => router.push("/policeHotel")}
                 style={{ textDecoration: "none", color: "#fff" }}
               >
                 Hotels
@@ -92,7 +92,7 @@ export default function PoliceDashboard() {
               <Link
                 component="button"
                 variant="h6"
-                onClick={() => setValue(3)}
+                // onClick={() => setValue(3)}
                 style={{
                   textDecoration: "none",
                   color: "#fff",
@@ -113,24 +113,29 @@ export default function PoliceDashboard() {
               width: "50%",
               margin: "0 auto",
               background: "rgb(241,241,241)",
-              borderRadius: "30px",
             }}
           >
             <Grid container>
               <Grid
                 item
-                lg={6}
-                align="center"
+                lg={5}
                 display={"flex"}
                 justifyContent={"flex-end"}
                 bgcolor={"rgb(79,79,79)"}
-                color={"#fff"}
+                // border={"2px solid red"}
               >
-                <Typography variant="h5">Summary</Typography>
+                <SummarizeIcon style={{ color: "#fff", marginTop: "5px" }} />
               </Grid>
-              <Grid item lg={6} bgcolor={"rgb(79,79,79)"}>
-                <div style={{ marginLeft: "20px", marginTop: "2px" }}>
-                  <SummarizeIcon style={{ color: "#fff" }} />
+              <Grid
+                item
+                lg={7}
+                bgcolor={"rgb(79,79,79)"}
+                // border={"2px solid red"}
+              >
+                <div style={{ marginLeft: "10px", marginTop: "2px" }}>
+                  <Typography variant="h5" color={"#fff"}>
+                    Summary
+                  </Typography>
                 </div>
               </Grid>
 
@@ -148,9 +153,9 @@ export default function PoliceDashboard() {
             </Grid>
           </Paper>
         </div>
-        <div>{value === 1 && <Tenants />}</div>
-        <div>{value === 2 && <TenantsResidency />}</div>
-        <div>{value === 3 && <Hotels />}</div>
+        {/* <div>{value === 1 && <Tenants />}</div> */}
+        {/* <div>{value === 2 && <TenantsResidency />}</div>
+        <div>{value === 3 && <Hotels />}</div> */}
       </div>
     </div>
   );

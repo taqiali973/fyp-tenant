@@ -1,6 +1,6 @@
 import { Grid, Paper, Typography, TextField } from "@mui/material";
 import React, { useState } from "react";
-import LandingPage from "./Landing-Page";
+import NavBar from "../Landing-Pages/Nav-Bar";
 import AddIcon from "@mui/icons-material/Add";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -8,7 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import GuestList from "./Guest-List";
+import GuestList from "../Guest-List";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { useRouter } from "next/router";
 import HotelIcon from "@mui/icons-material/Hotel";
@@ -30,7 +30,7 @@ export default function HotelDashboard() {
 
   return (
     <>
-      <LandingPage />
+      <NavBar />
       <div
         style={{
           marginTop: "-30%",
@@ -117,7 +117,7 @@ export default function HotelDashboard() {
                       border: "2px solid red",
                     }}
                   >
-                    {/* <Button
+                    <Button
                       variant="contained"
                       style={{
                         background: "rgb(79 79 79)",
@@ -128,7 +128,7 @@ export default function HotelDashboard() {
                     >
                       <AddIcon />
                       Add Guest
-                    </Button> */}
+                    </Button>
                   </div>
                 </div>
                 {/* {openModal && <AddGuest closeModal={setOpenModal} />} */}

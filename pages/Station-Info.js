@@ -12,14 +12,17 @@ export default function StationInfo() {
       }}
     >
       <Grid container align="center" bgcolor={"rgb(79 79 79)"}>
-        <Grid item lg={6}>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Typography variant="h5" color={"#fff"}>
-              Station Info
-            </Typography>
+        <Grid item lg={5}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <LocalPoliceIcon sx={{ color: "#fff", marginTop: "5px" }} />
           </div>
         </Grid>
-        <Grid item lg={6}>
+        <Grid item lg={7}>
           <div
             style={{
               display: "flex",
@@ -28,7 +31,9 @@ export default function StationInfo() {
               marginLeft: "10px",
             }}
           >
-            <LocalPoliceIcon sx={{ color: "#fff" }} />
+            <Typography variant="h5" color={"#fff"}>
+              Station Info
+            </Typography>
           </div>
         </Grid>
       </Grid>

@@ -1,89 +1,72 @@
-import React, { useState } from "react";
-import { Link, Typography } from "@mui/material";
+import React from "react";
+import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import LandingPage from "./Landing-Page";
-import CurrentTenants from "./CurrentTenants";
-import NewTenants from "./NewTenants";
-import TenantHistory from "./TenantHistory";
-export default function Tenants() {
-  const [value, setValue] = useState(0);
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
+const paperStyle = {
+  marginBottom: "100px",
+};
+export default function NewTenants() {
   return (
     <div>
       <LandingPage />
       <div
         style={{
-          marginTop: "5%",
+          marginTop: "3%",
           width: "90%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
       >
         <Grid container>
-          <Grid item xl={12}>
-            <div
-              style={{
-                width: "50%",
-                margin: "0 auto",
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(0)}
-              >
-                <Typography>Current Tenants </Typography>
-              </Link>
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(1)}
-              >
-                <Typography>New Tenants </Typography>
-              </Link>
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(2)}
-              >
-                <Typography>Tenants History </Typography>
-              </Link>
-            </div>
+          <Grid item xl={12} textAlign="center">
+            <Typography>New Tenants</Typography>
           </Grid>
         </Grid>
-        {value === 0 && <CurrentTenants />}
-        {value === 1 && <NewTenants />}
-        {value === 2 && <TenantHistory />}
       </div>
-    </div>
-  );
-}
-{
-  /* <div
+      <div
         style={{
           marginTop: "3%",
           marginLeft: "auto",
           marginRight: "auto",
-          width: "80%",
+          width: "75%",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -146,27 +129,40 @@ export default function Tenants() {
             </Grid>
           </Grid>
         </Paper>
-      </div> */
-}
 
-{
-  /* 
-        -----2ND PAPER------ */
-}
-{
-  /* <Paper elevation={10} style={paperStyle}>
+        {/* 
+        -----2ND PAPER------ */}
+        <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -228,26 +224,40 @@ export default function Tenants() {
               </div>
             </Grid>
           </Grid>
-        </Paper> */
-}
+        </Paper>
 
-{
-  /* -----3RD Paper---- */
-}
-{
-  /* <Paper elevation={10} style={paperStyle}>
+        {/* -----3RD Paper---- */}
+        <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -309,26 +319,39 @@ export default function Tenants() {
               </div>
             </Grid>
           </Grid>
-        </Paper> */
-}
+        </Paper>
 
-{
-  /* ---4TH Paper--- */
-}
-
-/* <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+        {/* ---4TH Paper--- */}
+        <Paper elevation={10} style={paperStyle}>
+          <Grid container sx={{ background: "darkkhaki" }}>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px", color: "white" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -390,4 +413,8 @@ export default function Tenants() {
               </div>
             </Grid>
           </Grid>
-        </Paper> */
+        </Paper>
+      </div>
+    </div>
+  );
+}

@@ -3,23 +3,23 @@ import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useRouter } from "next/router";
-// import { makeStyles } from "@mui/styles";
-
-import HotelIcon from "@mui/icons-material/Hotel";
+import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import { inputLabelClasses } from "@mui/material/InputLabel";
+import { useRouter } from "next/router";
+
+// import { makeStyles } from "@mui/styles";
 
 import { useForm } from "react-hook-form";
 // const useStyles = makeStyles({
-//   textField: {
-//     border: "1px solid black",
+//   root: {
+//     "& .MuiFormLabel-root": {
+//       backgroundColor: "red", // or black
+//     },
 //   },
 // });
-export default function HotelLogin() {
-  // const classes = useStyles();
+
+export default function PoliceLogin() {
   const router = useRouter();
 
   const {
@@ -32,41 +32,33 @@ export default function HotelLogin() {
     console.log(data);
     reset();
   };
-  const paperStyle = {
-    padding: 30,
-    width: 500,
-    borderRadius: "30px",
-    background: "rgb(242 238 238)",
-  };
+  // const paperStyle = {
+  //   padding: 30,
+  //   width: 500,
+  //   borderRadius: "30px",
+  //   background: "rgb(242 238 238)",
+  // };
 
-  const avatarStyle = {
-    background: "rgb(80 74 74)",
-  };
-  const btnStyle = {
-    margin: "10px 0",
-    background: "rgb(80 74 74)",
-  };
+  // const avatarStyle = {
+  //   background: "rgb(80 74 74)",
+  // };
+  // const btnStyle = {
+  //   margin: "10px 0",
+  //   background: "rgb(80 74 74)",
+  // };
+
   return (
     <div>
-      <Grid
-        container
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "10%",
-        }}
-      >
-        <Paper elevation={10} style={paperStyle}>
+      <Grid container className="login-container">
+        <Paper elevation={10} className="paper-style">
           <Grid align="center">
-            <Avatar style={avatarStyle}>
-              <HotelIcon />
+            <Avatar className="avatarStyle">
+              <LocalPoliceIcon />
             </Avatar>
             <h4
               style={{
                 marginTop: "10px",
                 color: "rgb(80 74 74)",
-                fontFamily: "cursive",
               }}
             >
               Sign In
@@ -75,21 +67,20 @@ export default function HotelLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
+              id="standard-basic"
               label="Username"
+              variant="standard"
+              fullWidth
+              required
+              type="email"
               InputLabelProps={{
                 sx: {
-                  color: "black",
+                  // color: "black",
                   [`&.${inputLabelClasses.shrink}`]: {
                     color: "black",
                   },
                 },
               }}
-              // className={classes.textField}
-              placeholder="Enter Username"
-              variant="outlined"
-              fullWidth
-              required
-              type="email"
               // {...register("username", {
               //   required: "username is required",
               //   pattern: {
@@ -100,58 +91,44 @@ export default function HotelLogin() {
               // })}
               // error={!!errors?.username}
               // helperText={errors?.username ? errors.username.message : null}
-              style={{ marginBottom: "20px" }}
             />
+            <br />
+            <br />
             <TextField
+              id="standard-basic"
               label=" Password"
-              placeholder="Enter Password"
-              variant="outlined"
-              type="password"
+              variant="standard"
               fullWidth
               required
+              type="password"
+              InputLabelProps={{
+                sx: {
+                  // color: "black",
+                  [`&.${inputLabelClasses.shrink}`]: {
+                    color: "black",
+                  },
+                },
+              }}
               // {...register("password", {
               //   required: "password is required",
               // })}
               // error={!!errors?.password}
               // helperText={errors?.password ? errors.password.message : null}
             />
+            <br />
+            <br />
             {/* Button */}
             <Button
-              style={btnStyle}
-              sx={{ fontFamily: "cursive" }}
+              className="btnStyle"
               type="submit"
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Hotel-Dashboard")}
+              onClick={() => router.push("/Police-dashboard")}
             >
               Sign In
             </Button>
           </form>
-          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
-            <Link
-              style={{
-                textDecoration: "none",
-                cursor: "pointer",
-                fontFamily: "cursive",
-              }}
-            >
-              Forgot Password?
-            </Link>
-          </Typography>
-          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
-            Don't have an account?
-            <Link
-              style={{
-                textDecoration: "none",
-                cursor: "pointer",
-                fontFamily: "cursive",
-              }}
-              onClick={() => router.push("/Hotel-SignUp")}
-            >
-              Sign Up
-            </Link>
-          </Typography>
         </Paper>
       </Grid>
     </div>

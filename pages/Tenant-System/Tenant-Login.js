@@ -3,25 +3,19 @@ import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
-import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
-import { inputLabelClasses } from "@mui/material/InputLabel";
+import Typography from "@mui/material/Typography";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
-
-// import { makeStyles } from "@mui/styles";
+import { inputLabelClasses } from "@mui/material/InputLabel";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+// import InputAdornment from "@mui/material/InputAdornment";
 
 import { useForm } from "react-hook-form";
-// const useStyles = makeStyles({
-//   root: {
-//     "& .MuiFormLabel-root": {
-//       backgroundColor: "red", // or black
-//     },
-//   },
-// });
 
-export default function PoliceLogin() {
+export default function TenantLogin() {
   const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -32,42 +26,19 @@ export default function PoliceLogin() {
     console.log(data);
     reset();
   };
-  const paperStyle = {
-    padding: 30,
-    width: 500,
-    borderRadius: "30px",
-    background: "rgb(242 238 238)",
-  };
-
-  const avatarStyle = {
-    background: "rgb(80 74 74)",
-  };
-  const btnStyle = {
-    margin: "10px 0",
-    background: "rgb(80 74 74)",
-  };
 
   return (
     <div>
-      <Grid
-        container
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "10%",
-        }}
-      >
-        <Paper elevation={10} style={paperStyle}>
+      <Grid container className="login-container">
+        <Paper elevation={10} className="paper-style">
           <Grid align="center">
-            <Avatar style={avatarStyle}>
-              <LocalPoliceIcon />
+            <Avatar className="avatarStyle">
+              <AccountCircleIcon />
             </Avatar>
             <h4
               style={{
                 marginTop: "10px",
                 color: "rgb(80 74 74)",
-                fontFamily: "cursive",
               }}
             >
               Sign In
@@ -76,20 +47,21 @@ export default function PoliceLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
+              id="standard-basic"
               label="Username"
-              placeholder="Enter Username"
-              variant="outlined"
+              variant="standard"
               fullWidth
               required
+              type="email"
+              icon={<VisibilityIcon sx={{ color: "black" }} />}
               InputLabelProps={{
                 sx: {
-                  color: "black",
+                  // color: "black",
                   [`&.${inputLabelClasses.shrink}`]: {
                     color: "black",
                   },
                 },
               }}
-              type="email"
               // {...register("username", {
               //   required: "username is required",
               //   pattern: {
@@ -100,42 +72,72 @@ export default function PoliceLogin() {
               // })}
               // error={!!errors?.username}
               // helperText={errors?.username ? errors.username.message : null}
-              style={{ marginBottom: "20px" }}
             />
+            <br />
+            <br />
+            {/* <div style={{ display: "flex" }}> */}
             <TextField
+              id="standard-basic"
               label=" Password"
-              placeholder="Enter Password"
-              variant="outlined"
-              type="password"
+              variant="standard"
               fullWidth
+              required
+              type="password"
               InputLabelProps={{
                 sx: {
-                  color: "black",
+                  // color: "black",
                   [`&.${inputLabelClasses.shrink}`]: {
                     color: "black",
                   },
                 },
               }}
-              required
               // {...register("password", {
               //   required: "password is required",
               // })}
               // error={!!errors?.password}
               // helperText={errors?.password ? errors.password.message : null}
             />
+            {/* InputProps=
+            {{
+              startAdornment: {
+                <InputAdornment>
+                  <VisibilityIcon />
+                </InputAdornment>
+              },
+            }} */}
+            {/* <Button>Show</Button>
+            </div> */}
+            <br />
+            <br />
             {/* Button */}
             <Button
-              style={btnStyle}
-              sx={{ fontFamily: "cursive" }}
+              className="btnStyle"
               type="submit"
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Police-dashboard")}
+              onClick={() => router.push("/Tenant-System/Tenant-Dashboard")}
             >
               Sign In
             </Button>
           </form>
+          <Typography style={{ marginTop: "10px" }}>
+            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
+              Forgot Password?
+            </Link>
+          </Typography>
+          <Typography style={{ marginTop: "10px" }}>
+            Don't have an account?
+            <Link
+              style={{
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+              onClick={() => router.push("/Tenant-System/Tenant-SignUp")}
+            >
+              Sign Up
+            </Link>
+          </Typography>
         </Paper>
       </Grid>
     </div>

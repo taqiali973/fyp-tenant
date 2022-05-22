@@ -7,7 +7,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import LandingPage from "./Landing-Page";
+import NavBar from "../Landing-Pages/Nav-Bar";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useRouter } from "next/router";
@@ -114,7 +114,7 @@ export default function ViewGuestHistory() {
 
   return (
     <>
-      <LandingPage />
+      <NavBar />
       <div
         style={{
           marginTop: "5%",

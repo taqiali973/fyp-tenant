@@ -6,14 +6,16 @@ import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import HotelIcon from "@mui/icons-material/Hotel";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 
 import { useForm } from "react-hook-form";
 
-export default function TenantLogin() {
+export default function HotelLogin() {
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -24,42 +26,19 @@ export default function TenantLogin() {
     console.log(data);
     reset();
   };
-  const paperStyle = {
-    padding: 30,
-    width: 500,
-    borderRadius: "30px",
-    background: "rgb(242 238 238)",
-  };
 
-  const avatarStyle = {
-    background: "rgb(80 74 74)",
-  };
-  const btnStyle = {
-    margin: "10px 0",
-    background: "rgb(80 74 74)",
-  };
   return (
     <div>
-      <Grid
-        container
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          marginTop: "10%",
-        }}
-      >
-        <Paper elevation={10} style={paperStyle}>
+      <Grid container className="login-container">
+        <Paper elevation={10} className="paper-style">
           <Grid align="center">
-            <Avatar style={avatarStyle}>
-              <AccountCircleIcon />
+            <Avatar className="avatarStyle">
+              <HotelIcon />
             </Avatar>
             <h4
               style={{
                 marginTop: "10px",
                 color: "rgb(80 74 74)",
-                fontFamily: "cursive",
               }}
             >
               Sign In
@@ -68,20 +47,20 @@ export default function TenantLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
+              id="standard-basic"
               label="Username"
-              placeholder="Enter Username"
-              variant="outlined"
+              variant="standard"
               fullWidth
+              required
+              type="email"
               InputLabelProps={{
                 sx: {
-                  color: "black",
+                  // color: "black",
                   [`&.${inputLabelClasses.shrink}`]: {
                     color: "black",
                   },
                 },
               }}
-              required
-              type="email"
               // {...register("username", {
               //   required: "username is required",
               //   pattern: {
@@ -92,58 +71,63 @@ export default function TenantLogin() {
               // })}
               // error={!!errors?.username}
               // helperText={errors?.username ? errors.username.message : null}
-              style={{ marginBottom: "20px" }}
             />
+            <br />
+            <br />
             <TextField
+              id="standard-basic"
               label=" Password"
-              placeholder="Enter Password"
-              variant="outlined"
-              type="password"
+              variant="standard"
               fullWidth
+              required
+              type="password"
               InputLabelProps={{
                 sx: {
-                  color: "black",
+                  // color: "black",
                   [`&.${inputLabelClasses.shrink}`]: {
                     color: "black",
                   },
                 },
               }}
-              required
               // {...register("password", {
               //   required: "password is required",
               // })}
               // error={!!errors?.password}
               // helperText={errors?.password ? errors.password.message : null}
             />
+            <br />
+            <br />
             {/* Button */}
             <Button
-              style={btnStyle}
+              className="btnStyle"
+              s
               type="submit"
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Tenant-Dashboard")}
-              sx={{
-                fontFamily: "cursive",
-              }}
+              onClick={() => router.push("/Hotel-System/Hotel-Dashboard")}
             >
               Sign In
             </Button>
           </form>
-          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
-            <Link style={{ textDecoration: "none", cursor: "pointer" }}>
+          <Typography style={{ marginTop: "10px" }}>
+            <Link
+              style={{
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
               Forgot Password?
             </Link>
           </Typography>
-          <Typography style={{ marginTop: "10px", fontFamily: "cursive" }}>
+          <Typography style={{ marginTop: "10px" }}>
             Don't have an account?
             <Link
               style={{
                 textDecoration: "none",
                 cursor: "pointer",
-                fontFamily: "cursive",
               }}
-              onClick={() => router.push("/Tenant-SignUp")}
+              onClick={() => router.push("/Hotel-SignUp")}
             >
               Sign Up
             </Link>

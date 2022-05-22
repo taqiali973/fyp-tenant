@@ -161,6 +161,7 @@ export default function GuestList() {
                   >
                     EntryAt
                   </TableCell>
+
                   <TableCell
                     sx={{
                       fontWeight: "bold",
