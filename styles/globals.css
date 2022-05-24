@@ -220,7 +220,7 @@ align-items: center;
 
  display: flex;
  align-items: center;
- padding-top: 30px;
+ padding-top: 10px;
 }
 .person-icon{
   display: flex;
@@ -300,3 +300,18 @@ justify-content: space-around;
   left: 70%;
   top:30%
 }
+.hotel-container{
+ 
+       height: 790px;
+       background-color: whitesmoke;
+   
+}
+/* ADD GUEST DIALOG */
+.DialogTitle{
+ 
+    display: flex;
+    justify-content:center;
+
+}
+
+

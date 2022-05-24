@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./Landing-Pages/Nav-Bar";
+import NavBar from "../Landing-Pages/Nav-Bar";
 import Grid from "@mui/material/Grid";
-import StationInfo from "./Station-Info";
+import StationInfo from "../Station-Info";
 import { Paper, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
 import SummarizeIcon from "@mui/icons-material/Summarize";
@@ -45,7 +45,7 @@ export default function PoliceDashboard() {
                 component="button"
                 variant="h6"
                 // onClick={() => setValue(1)}
-                onClick={() => router.push("/Tenants")}
+                onClick={() => router.push("/Police-System/Tenants")}
                 style={{ textDecoration: "none", color: "#fff" }}
               >
                 Tenants

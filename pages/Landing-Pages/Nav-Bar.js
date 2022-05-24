@@ -18,7 +18,8 @@ export default function NavBar() {
               <Link
                 underline="none"
                 className="logo"
-                // onClick={() => router.push("/Main-Landing-Page")}
+                onClick={() => router.push("/Landing-Pages/Main-Landing-Page")}
+                style={{ cursor: "pointer" }}
               >
                 TRVS
               </Link>

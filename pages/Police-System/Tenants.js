@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import LandingPage from "./Landing-Page";
-import CurrentTenants from "./CurrentTenants";
-import NewTenants from "./NewTenants";
-import TenantHistory from "./TenantHistory";
+import NavBar from "../Landing-Pages/Nav-Bar";
+import CurrentTenants from "../CurrentTenants";
+import NewTenants from "../NewTenants";
+import TenantHistory from "../TenantHistory";
 export default function Tenants() {
   const [value, setValue] = useState(0);
 
   return (
     <div>
-      <LandingPage />
+      <NavBar />
       <div
         style={{
           marginTop: "5%",
@@ -35,7 +35,9 @@ export default function Tenants() {
                 underline="none"
                 onClick={() => setValue(0)}
               >
-                <Typography>Current Tenants </Typography>
+                <Typography style={{ color: value === 0 ? "blue" : "black" }}>
+                  Current Tenants
+                </Typography>
               </Link>
               <Link
                 component="button"
@@ -43,7 +45,9 @@ export default function Tenants() {
                 underline="none"
                 onClick={() => setValue(1)}
               >
-                <Typography>New Tenants </Typography>
+                <Typography style={{ color: value === 1 ? "blue" : "black" }}>
+                  New Tenants{" "}
+                </Typography>
               </Link>
               <Link
                 component="button"
@@ -51,7 +55,9 @@ export default function Tenants() {
                 underline="none"
                 onClick={() => setValue(2)}
               >
-                <Typography>Tenants History </Typography>
+                <Typography style={{ color: value === 2 ? "blue" : "black" }}>
+                  Tenants History{" "}
+                </Typography>
               </Link>
             </div>
           </Grid>

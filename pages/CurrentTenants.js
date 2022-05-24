@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import LandingPage from "./Landing-Page";
+import NavBar from "./Landing-Pages/Nav-Bar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const paperStyle = {
@@ -10,7 +10,7 @@ const paperStyle = {
 export default function CurrentTenants() {
   return (
     <div>
-      <LandingPage />
+      <NavBar />
       <div
         style={{
           marginTop: "3%",

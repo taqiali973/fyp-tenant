@@ -32,20 +32,6 @@ export default function PoliceLogin() {
     console.log(data);
     reset();
   };
-  // const paperStyle = {
-  //   padding: 30,
-  //   width: 500,
-  //   borderRadius: "30px",
-  //   background: "rgb(242 238 238)",
-  // };
-
-  // const avatarStyle = {
-  //   background: "rgb(80 74 74)",
-  // };
-  // const btnStyle = {
-  //   margin: "10px 0",
-  //   background: "rgb(80 74 74)",
-  // };
 
   return (
     <div>
@@ -124,7 +110,7 @@ export default function PoliceLogin() {
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Police-dashboard")}
+              onClick={() => router.push("/Police-System/Police-dashboard")}
             >
               Sign In
             </Button>

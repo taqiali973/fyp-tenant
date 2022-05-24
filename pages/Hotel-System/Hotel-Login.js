@@ -127,7 +127,7 @@ export default function HotelLogin() {
                 textDecoration: "none",
                 cursor: "pointer",
               }}
-              onClick={() => router.push("/Hotel-SignUp")}
+              onClick={() => router.push("/Hotel-System/Hotel-SignUp")}
             >
               Sign Up
             </Link>

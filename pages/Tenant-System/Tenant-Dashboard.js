@@ -64,7 +64,10 @@ export default function TenantDashboard() {
                 <h1>Welcome</h1>
               </div>
               <div className="logout-icon">
-                <Button variant="contained">
+                <Button
+                  variant="contained"
+                  onClick={() => router.push("/Tabs/Login-Tabs")}
+                >
                   logout
                   <LogoutIcon />
                 </Button>

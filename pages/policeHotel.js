@@ -1,12 +1,13 @@
 import React from "react";
 // import LandingPage from "./Landing-Page";
+import NavBar from "./Landing-Pages/Nav-Bar";
 import Link from "@mui/material/Link";
 import HotelTable from "./HotelTable";
 import { Grid, Typography } from "@mui/material";
 export default function HotelList() {
   return (
     <>
-      <LandingPage />
+      <NavBar />
 
       <div style={{ marginTop: "5%" }}>
         <Grid container>
