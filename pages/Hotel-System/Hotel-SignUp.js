@@ -153,9 +153,9 @@ import React from "react";
 import NavBar from "../Landing-Pages/Nav-Bar";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Avatar from "@mui/material/Avatar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Typography from "@mui/material/Typography";
+import Link from "next/link";
+
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
@@ -260,16 +260,13 @@ export default function TenantSignUp() {
               alignItems={"center"}
               marginTop={"40px"}
             >
-              <Button
-                variant="contained"
-                onClick={() =>
-                  router.push({
-                    pathname: "Tabs/Login-Tabs",
-                    query: { activeTab: "tenant" },
-                  })
-                }
-              >
-                Submit
+              <Button variant="contained">
+                <Link
+                  href={`/Tabs/Login-Tabs?activeTab=hotel`}
+                  style={{ color: "white" }}
+                >
+                  Submit
+                </Link>
               </Button>
             </Grid>
           </Grid>

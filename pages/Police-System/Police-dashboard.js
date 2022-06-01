@@ -1,162 +1,360 @@
 import React from "react";
-import NavBar from "../Landing-Pages/Nav-Bar";
-import Grid from "@mui/material/Grid";
-import StationInfo from "../Station-Info";
-import { Paper, Typography } from "@mui/material";
-import Link from "@mui/material/Link";
-import SummarizeIcon from "@mui/icons-material/Summarize";
+import { Grid, Typography } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Avatar from "@mui/material/Avatar";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
-import HotelIcon from "@mui/icons-material/Hotel";
-import LockResetIcon from "@mui/icons-material/LockReset";
-// import HotelList from "./policeHotel";
 import { useRouter } from "next/router";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LockResetIcon from "@mui/icons-material/LockReset";
+import HotelIcon from "@mui/icons-material/Hotel";
 
 export default function PoliceDashboard() {
   const router = useRouter();
 
   return (
     <div>
-      <NavBar />
-      <div
-        style={{
-          width: "100%",
-          marginTop: "100px",
-        }}
-      >
-        <Grid
-          container
-          width={"50%"}
-          margin={"0 auto"}
-          justifyContent={"center"}
-        >
-          <Grid
-            item
-            lg={4}
-            bgcolor={"rgb(79 79 79)"}
-            display={"flex"}
-            justifyContent={"center"}
-            border={"2px solid white"}
-          >
-            <div style={{ marginTop: "2px" }}>
-              <PersonIcon sx={{ color: "#fff", fontSize: "30px" }} />
-            </div>
-            <div style={{ marginTop: "4px" }}>
-              <Link
-                component="button"
-                variant="h6"
-                // onClick={() => setValue(1)}
-                onClick={() => router.push("/Police-System/Tenants")}
-                style={{ textDecoration: "none", color: "#fff" }}
-              >
-                Tenants
-              </Link>
-            </div>
-          </Grid>
-
-          <Grid
-            item
-            lg={4}
-            bgcolor={"rgb(79 79 79)"}
-            display={"flex"}
-            justifyContent={"center"}
-            border={"2px solid white"}
-          >
-            <div style={{ marginTop: "2px" }}>
-              <HotelIcon
-                sx={{ color: "#fff", fontSize: "30px", marginRight: "5px" }}
-              />
-            </div>
-            <div style={{ marginTop: "4px" }}>
-              <Link
-                component="button"
-                variant="h6"
-                onClick={() => router.push("/policeHotel")}
-                style={{ textDecoration: "none", color: "#fff" }}
-              >
-                Hotels
-              </Link>
-            </div>
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            bgcolor={"rgb(79 79 79)"}
-            display={"flex"}
-            justifyContent={"center"}
-            border={"2px solid white"}
-          >
-            <div style={{ marginTop: "2px" }}>
-              <LockResetIcon sx={{ color: "#fff", fontSize: "30px" }} />
-            </div>
-            <div style={{ marginTop: "4px" }}>
-              <Link
-                component="button"
-                variant="h6"
-                // onClick={() => setValue(3)}
+      <div className="tenant-first-div">
+        <Grid container className="tenant-dashboard-container">
+          <Grid item lg={2} className="lg-2">
+            <Paper elevation={10} className="dashboard-tenant-paper">
+              <div className="Content">
+                <h6
+                  className="TRVS"
+                  onClick={() =>
+                    router.push("/Landing-Pages/Main-Landing-Page")
+                  }
+                >
+                  TRVS
+                </h6>
+              </div>
+              <div
                 style={{
-                  textDecoration: "none",
-                  color: "#fff",
-                  marginRight: "3px",
+                  position: "absolute",
+                  top: "32%",
+                  display: "flex",
+                  alignItems: "center",
+                  width: "6%",
+                  justifyContent: "space-evenly",
                 }}
               >
-                Change Password
-              </Link>
+                <PersonIcon sx={{ color: "#FFFAF0" }} />
+                <Typography
+                  variant="p"
+                  className="guest"
+                  onClick={() => router.push("/Police-System/Tenants")}
+                >
+                  Tenants
+                </Typography>
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "38%",
+                  display: "flex",
+                  alignItems: "center",
+                  width: "6%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <HotelIcon sx={{ color: "#FFFAF0" }} />
+                <Typography
+                  variant="p"
+                  className="guest"
+                  onClick={() =>
+                    router.push("/Police-System/Hotel-Information")
+                  }
+                >
+                  Hotels
+                </Typography>
+              </div>
+            </Paper>
+          </Grid>
+          <Grid item lg={10} marginTop={"30px"}>
+            <div className="welcome-tenant">
+              <div>
+                <Typography variant="h6" className="Dashboard-Heading">
+                  Police Dashboard
+                </Typography>
+              </div>
+              <div className="logout-icon">
+                <Button
+                  variant="contained"
+                  onClick={() => router.push("/Tabs/Login-Tabs")}
+                >
+                  logout
+                  <LogoutIcon />
+                </Button>
+              </div>
+            </div>
+
+            <div className="your-information-section">
+              <Grid container>
+                <Grid item lg={4}></Grid>
+                <Grid item lg={4} marginBottom={"150px"}></Grid>
+                <Grid item lg={4}></Grid>
+                <Grid item lg={1}></Grid>
+                <Grid item lg={6}>
+                  <Paper elevation={10} className="paper">
+                    <div className="main-div">
+                      <div className="information-heading">
+                        <h2
+                          style={{
+                            marginLeft: "50px",
+                          }}
+                        >
+                          Station Information
+                        </h2>
+                        <div className="person-icon">
+                          <PersonIcon />
+                        </div>
+                      </div>
+                      <div className="tenant-information">
+                        <div className="info">
+                          <Grid container>
+                            <Grid item lg={6}>
+                              <p>Station Name : Waris Khan</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              <p>SHO Name : Mujawar Ali</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>Station Email : 123@gmail.com</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>Station Address : Murree Road Rawalpindi</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p> SHO Cnic : 34789-8763459-9</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>Station Phone : 051-9846652</p>
+                            </Grid>
+                          </Grid>
+                        </div>
+                      </div>
+                    </div>
+                  </Paper>
+                </Grid>
+                <Grid
+                  item
+                  lg={5}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  marginTop={"60px"}
+                >
+                  <Paper elevation={10} className="paper-style">
+                    <Grid align="center">
+                      <Avatar className="avatarStyle">
+                        <LockResetIcon />
+                      </Avatar>
+                      <h4
+                        style={{
+                          marginTop: "10px",
+                          color: "rgb(80 74 74)",
+                        }}
+                      >
+                        Change Password
+                      </h4>
+                    </Grid>
+                    {/* TextField */}
+                    <form autoComplete="off" noValidate>
+                      <TextField
+                        id="standard-basic"
+                        label="old password"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        type="password"
+                      />
+                      <br />
+                      <br />
+
+                      <TextField
+                        id="standard-basic"
+                        label=" new Password"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        type="password"
+                      />
+                      <br />
+                      <br />
+                      <TextField
+                        id="standard-basic"
+                        label=" repeat Password"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        type="password"
+                      />
+                      <br />
+                      <br />
+                      {/* Button */}
+                      <Button
+                        className="btnStyle"
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                      >
+                        Change
+                      </Button>
+                    </form>
+                  </Paper>
+                </Grid>
+
+                <Grid item lg={1}></Grid>
+                <Grid item lg={6} className="residency-col">
+                  <Paper elevation={10} className="paper">
+                    <div className="main-div">
+                      <div className="information-heading">
+                        <h2
+                          style={{
+                            marginLeft: "50px",
+                          }}
+                        >
+                          Summary{" "}
+                        </h2>
+                        <div className="person-icon">
+                          <PersonIcon />
+                        </div>
+                      </div>
+                      <div className="tenant-information">
+                        <div className="info">
+                          <Grid container>
+                            <Grid item lg={6}>
+                              <p>New Tenants : 4</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              <p>Total Tenants : 10</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>New Hotels : 4</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>Total Hotels : 20</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p> Total Guests : 40</p>
+                            </Grid>
+                            <Grid item lg={6}>
+                              {" "}
+                              <p>Monthly Guests</p>
+                            </Grid>
+                          </Grid>
+                        </div>
+                      </div>
+                    </div>
+                  </Paper>
+                </Grid>
+                <Grid item lg={5}></Grid>
+              </Grid>
             </div>
           </Grid>
         </Grid>
-
-        <div style={{ marginTop: "60px" }}>
-          <StationInfo />
-          <Paper
-            elevation={10}
-            style={{
-              width: "50%",
-              margin: "0 auto",
-              background: "rgb(241,241,241)",
-            }}
-          >
-            <Grid container>
-              <Grid
-                item
-                lg={5}
-                display={"flex"}
-                justifyContent={"flex-end"}
-                bgcolor={"rgb(79,79,79)"}
-                // border={"2px solid red"}
-              >
-                <SummarizeIcon style={{ color: "#fff", marginTop: "5px" }} />
-              </Grid>
-              <Grid
-                item
-                lg={7}
-                bgcolor={"rgb(79,79,79)"}
-                // border={"2px solid red"}
-              >
-                <div style={{ marginLeft: "10px", marginTop: "2px" }}>
-                  <Typography variant="h5" color={"#fff"}>
-                    Summary
-                  </Typography>
-                </div>
-              </Grid>
-
-              <Grid item lg={6} align="center">
-                <h3>New Tenants : 2</h3>
-
-                <h3>Hotels : 6</h3>
-                <h3>Total Guests : 80</h3>
-              </Grid>
-              <Grid item lg={6} align="center">
-                <h3>Total Tenants : 20</h3>
-                <h3>Total Hotels : 30</h3>
-                <h3>Monthly Tenants :222</h3>
-              </Grid>
-            </Grid>
-          </Paper>
-        </div>
-        {/* <div>{value === 1 && <Tenants />}</div> */}
-        {/* <div>{value === 2 && <TenantsResidency />}</div>
-        <div>{value === 3 && <Hotels />}</div> */}
       </div>
     </div>
   );
+}
+
+{
+  /* <Paper elevation={10} className="paper">
+<div className="main-div">
+  <div className="information-heading">
+    <h2
+      style={{
+        marginLeft: "50px",
+      }}
+    >
+      Station Information
+    </h2>
+    <div className="person-icon">
+      <PersonIcon />
+    </div>
+  </div>
+  <div className="tenant-information">
+    <div className="info">
+      <Grid container>
+        <Grid item lg={6}>
+          <p>Station Name : Waris Khan</p>
+        </Grid>
+        <Grid item lg={6}>
+          <p>SHO Name : Mujawar Ali</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>Station Email : 123@gmail.com</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>Station Address : Murree Road Rawalpindi</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p> SHO Cnic : 34789-8763459-9</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>Station Phone : 051-9846652</p>
+        </Grid>
+      </Grid>
+    </div>
+  </div>
+</div>
+</Paper> */
+}
+{
+  /* <Paper elevation={10} className="paper">
+<div className="main-div">
+  <div className="information-heading">
+    <h2
+      style={{
+        marginLeft: "50px",
+      }}
+    >
+      Summary{" "}
+    </h2>
+    <div className="person-icon">
+      <PersonIcon />
+    </div>
+  </div>
+  <div className="tenant-information">
+    <div className="info">
+      <Grid container>
+        <Grid item lg={6}>
+          <p>New Tenants : 4</p>
+        </Grid>
+        <Grid item lg={6}>
+          <p>Total Tenants : 10</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>New Hotels : 4</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>Total Hotels : 20</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p> Total Guests : 40</p>
+        </Grid>
+        <Grid item lg={6}>
+          {" "}
+          <p>Monthly Guests</p>
+        </Grid>
+      </Grid>
+    </div>
+  </div>
+</div>
+</Paper> */
 }

@@ -1,12 +1,10 @@
 import React from "react";
-import Content from "./Content";
-import NavBar from "../../Landing-Pages/Nav-Bar";
+import History from "./History";
 export default function IndexTwo() {
   return (
     <>
-      <NavBar />
       <div>
-        <Content />
+        <History />
       </div>
     </>
   );

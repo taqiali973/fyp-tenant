@@ -16,9 +16,9 @@ const getActiveTab = (tab) => {
   if (tab === "tenant") {
     return "1";
   } else if (tab === "hotel") {
-    return 2;
+    return "2";
   } else {
-    return 3;
+    return "3";
   }
 };
 
@@ -31,7 +31,6 @@ export default function LoginTabs() {
     setSelectedTab(newValue);
   };
 
-  console.log("selectedTab", selectedTab);
   return (
     <div>
       <NavBar />

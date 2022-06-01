@@ -1,67 +1,75 @@
-import React from "react";
-import { Grid } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Grid, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import DoneIcon from "@mui/icons-material/Done";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import GppMaybeIcon from "@mui/icons-material/GppMaybe";
 import { useRouter } from "next/router";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LockResetIcon from "@mui/icons-material/LockReset";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PersonIcon from "@mui/icons-material/Person";
-import NavBar from "../Landing-Pages/Nav-Bar";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import DeleteIcon from "@mui/icons-material/Delete";
-import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
+import axios from "axios";
 
 export default function TenantDashboard() {
+  const [tenant, setTenant] = useState(null);
+  const [residency, setResidency] = useState();
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const api = "https://fyp-tenant.herokuapp.com/api/tenant/dashboard";
+
+  let token = "";
+  if (typeof window !== "undefined") {
+    token = localStorage.getItem("token");
+  }
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(api, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      console.log(response.data);
+      const { tenant } = response.data;
+      const { residence } = response.data;
+      setTenant(tenant);
+      setResidency(residence);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const router = useRouter();
 
   return (
     <div>
       <div className="tenant-first-div">
-        <NavBar />
+        {/* <NavBar /> */}
         <Grid container className="tenant-dashboard-container">
           <Grid item lg={2} className="lg-2">
             <Paper elevation={10} className="dashboard-tenant-paper">
-              <div>
-                <br />
-                <br />
-                <br />
-                <div className="tenant-heading">
-                  <h1>T</h1>
-                </div>
-
-                <div className="tenant-heading">
-                  <h1>R</h1>
-                </div>
-
-                <div className="tenant-heading">
-                  <h1>V</h1>
-                </div>
-
-                <div className="tenant-heading">
-                  <h1>S</h1>
-                </div>
-              </div>
-              <br />
-              <br />
-              <div>
-                <h1 style={{ textAlign: "center" }}>
-                  <AccountCircleIcon className="dashboard-logo" />
-                </h1>
-                <h1 className="tenant-dashboard">Tenant Dashboard</h1>
+              <div className="Content">
+                <h6
+                  className="TRVS"
+                  onClick={() =>
+                    router.push("/Landing-Pages/Main-Landing-Page")
+                  }
+                >
+                  TRVS
+                </h6>
               </div>
             </Paper>
           </Grid>
-          <Grid item lg={10}>
+          <Grid item lg={10} marginTop={"30px"}>
             <div className="welcome-tenant">
               <div>
-                <h1>Welcome</h1>
+                <Typography variant="h6" className="Dashboard-Heading">
+                  Tenant Dashboard
+                </Typography>
               </div>
               <div className="logout-icon">
                 <Button
@@ -74,15 +82,18 @@ export default function TenantDashboard() {
               </div>
             </div>
 
-            <div
-              style={{
-                height: "790px",
-                background: "whitesmoke",
-              }}
-            >
-              <Grid container paddingTop={"90px"}>
-                <Grid item lg={6} sx={{ marginLeft: "30px" }}>
-                  <Paper elevation={10} className="paper">
+            <div className="your-information-section">
+              <Grid container>
+                <Grid item lg={4}></Grid>
+                <Grid item lg={4} marginBottom={"150px"}></Grid>
+                <Grid item lg={4}></Grid>
+                <Grid item lg={1}></Grid>
+                <Grid item lg={6}>
+                  <Paper
+                    elevation={10}
+                    className="paper"
+                    style={{ borderRadius: "10px" }}
+                  >
                     <div className="main-div">
                       <div className="information-heading">
                         <h2
@@ -96,93 +107,52 @@ export default function TenantDashboard() {
                           <PersonIcon />
                         </div>
                       </div>
-                      <div className="tenant-information">
-                        <div className="info">
-                          <Grid container>
-                            <Grid item lg={6}>
-                              <p>Name : Taqi Ali</p>
+                      {tenant ? (
+                        <div
+                          className="tenant-information"
+                          // style={{ border: "2px solid red" }}
+                        >
+                          <div className="info">
+                            <Grid container align="center">
+                              <Grid item lg={6}>
+                                <p>Name : {tenant.name}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                <p>Father Name : {tenant.father}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                {" "}
+                                <p> Email :{tenant.email}</p>
+                              </Grid>
+
+                              <Grid item lg={6}>
+                                {" "}
+                                <p> Cnic : {tenant.cnic}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                {" "}
+                                <p>Phone : {tenant.phone}</p>
+                              </Grid>
                             </Grid>
-                            <Grid item lg={6}>
-                              <p>Father_Name : Mujawar Ali</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p>Email : 123@gmail.com</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p>Cnic : 34789-8763459-9</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p>Phone : 0324-9846652</p>
-                            </Grid>
-                          </Grid>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <p>Information not found</p>
+                        </div>
+                      )}
                     </div>
                   </Paper>
                 </Grid>
-
                 <Grid
                   item
-                  lg={6}
-                  sx={{ marginLeft: "30px", marginTop: "40px" }}
+                  lg={5}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  marginTop={"60px"}
                 >
-                  <Paper elevation={10} className="paper">
-                    <div className="main-residency-div">
-                      <div>
-                        <Grid
-                          container
-                          style={{
-                            width: "90%",
-                            margin: "0 auto",
-                          }}
-                        >
-                          <Grid item lg={2} className="residency">
-                            Residency
-                          </Grid>
-                          <Grid item lg={4}>
-                            <Button
-                              variant="contained"
-                              sx={{ marginRight: "3px" }}
-                            >
-                              <DoneIcon />
-                            </Button>
-                            <Button variant="contained">
-                              Verified
-                              <WarningAmberIcon sx={{ marginLeft: "3px" }} />
-                            </Button>
-                          </Grid>
-                          <Grid item lg={6} textAlign="right">
-                            <Button
-                              variant="contained"
-                              onClick={() =>
-                                router.push("/Tenant-System/Add-Residency")
-                              }
-                              sx={{ marginRight: "3px" }}
-                            >
-                              ADD <AddIcon />
-                            </Button>
-                            <Button variant="contained">
-                              Remove{" "}
-                              <PersonRemoveIcon sx={{ marginLeft: "3px" }} />
-                            </Button>
-                          </Grid>
-                        </Grid>
-
-                        <Grid container>
-                          <Grid item lg={1}></Grid>
-                          <Grid item lg={5} style={{ margin: "30px 0px" }}>
-                            No Residency Added
-                          </Grid>
-                        </Grid>
-                      </div>
-                    </div>
-                  </Paper>
-                </Grid>
-
-                <Grid item lg={6} className="change-password-col">
                   <Paper elevation={10} className="paper-style">
                     <Grid align="center">
                       <Avatar className="avatarStyle">
@@ -202,29 +172,10 @@ export default function TenantDashboard() {
                       <TextField
                         id="standard-basic"
                         label="old password"
-                        variant="standard"
+                        variant="outlined"
                         fullWidth
                         required
                         type="password"
-                        // icon={<VisibilityIcon sx={{ color: "black" }} />}
-                        // InputLabelProps={{
-                        //   sx: {
-                        //     // color: "black",
-                        //     [`&.${inputLabelClasses.shrink}`]: {
-                        //       color: "black",
-                        //     },
-                        //   },
-                        // }}
-                        // {...register("username", {
-                        //   required: "username is required",
-                        //   pattern: {
-                        //     value:
-                        //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        //     message: "Invalid Email Address",
-                        //   },
-                        // })}
-                        // error={!!errors?.username}
-                        // helperText={errors?.username ? errors.username.message : null}
                       />
                       <br />
                       <br />
@@ -232,7 +183,7 @@ export default function TenantDashboard() {
                       <TextField
                         id="standard-basic"
                         label=" new Password"
-                        variant="standard"
+                        variant="outlined"
                         fullWidth
                         required
                         type="password"
@@ -242,7 +193,7 @@ export default function TenantDashboard() {
                       <TextField
                         id="standard-basic"
                         label=" repeat Password"
-                        variant="standard"
+                        variant="outlined"
                         fullWidth
                         required
                         type="password"
@@ -256,15 +207,60 @@ export default function TenantDashboard() {
                         variant="contained"
                         color="primary"
                         fullWidth
-                        onClick={() =>
-                          router.push("/Tenant-System/Tenant-Dashboard")
-                        }
                       >
                         Change
                       </Button>
                     </form>
                   </Paper>
                 </Grid>
+
+                <Grid item lg={1}></Grid>
+                <Grid item lg={6} className="residency-col">
+                  <Paper elevation={10} className="paper-residency">
+                    <div className="section-residency">
+                      <div className="residency-content">Residency</div>
+                      <div
+                        style={{
+                          width: "36%",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Button variant="contained">
+                          <VerifiedUserIcon sx={{ marginRight: "5px" }} />
+                          Verified
+                        </Button>
+                        <Button variant="contained">
+                          <GppMaybeIcon sx={{ marginRight: "5px" }} />
+                          UnVerify
+                        </Button>
+                      </div>
+                      <div className="add">
+                        <div className="remove">
+                          {residency === null ? (
+                            <Button
+                              variant="contained"
+                              onClick={() =>
+                                router.push("/Tenant-System/Add-Residency")
+                              }
+                            >
+                              <AddIcon />
+                              Add
+                            </Button>
+                          ) : (
+                            <Button variant="contained">
+                              <RemoveIcon />
+                              Remove
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="no-residency-added">No Residency Added</div>
+                  </Paper>
+                </Grid>
+                <Grid item lg={5}></Grid>
               </Grid>
             </div>
           </Grid>

@@ -7,10 +7,8 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import HotelIcon from "@mui/icons-material/Hotel";
-import { inputLabelClasses } from "@mui/material/InputLabel";
-
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 export default function HotelLogin() {
@@ -22,11 +20,24 @@ export default function HotelLogin() {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    console.log("data", data);
+    try {
+      const response = await axios.post(
+        "http://fyp-tenant.herokuapp.com/api/tenant/login",
+        {
+          email: data.username,
+          password: data.password,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
     reset();
   };
-
   return (
     <div>
       <Grid container className="login-container">
@@ -47,60 +58,47 @@ export default function HotelLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
-              id="standard-basic"
+              id="standard-basic1"
               label="Username"
-              variant="standard"
+              variant="outlined"
               fullWidth
               required
               type="email"
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
+              {...register("username", {
+                required: "username is required",
+                pattern: {
+                  value:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: "invalid email address",
                 },
-              }}
-              // {...register("username", {
-              //   required: "username is required",
-              //   pattern: {
-              //     value:
-              //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              //     message: "Invalid Email Address",
-              //   },
-              // })}
-              // error={!!errors?.username}
-              // helperText={errors?.username ? errors.username.message : null}
+              })}
+              error={!!errors?.username}
+              helperText={errors?.username ? errors.username.message : null}
             />
             <br />
             <br />
             <TextField
-              id="standard-basic"
+              id="standard-basic2"
               label=" Password"
-              variant="standard"
+              variant="outlined"
               fullWidth
               required
               type="password"
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
-                },
-              }}
-              // {...register("password", {
-              //   required: "password is required",
-              // })}
-              // error={!!errors?.password}
-              // helperText={errors?.password ? errors.password.message : null}
+              {...register("password", {
+                required: "password is required",
+                // pattern: {
+                //   value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/,
+                //   message: "Invalid Password",
+                // },
+              })}
+              error={!!errors?.password}
+              helperText={errors?.password ? errors.password.message : null}
             />
             <br />
             <br />
             {/* Button */}
             <Button
               className="btnStyle"
-              s
               type="submit"
               variant="contained"
               color="primary"

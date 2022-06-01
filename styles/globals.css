@@ -150,7 +150,20 @@ letter-spacing: 5px;
 .paper-style {
    padding: 28px;
     width: 450px;
-    border-radius: 20px;
+    border-radius: 10px;
+}
+.paper-residency{
+  border-radius: 10px;
+}
+.residency-col{
+  margin-top:-10%
+}
+.residency-section{
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    padding: 30px 0,
+    
 }
 .avatarStyle{
   background: rgb(80 74 74) !important
@@ -163,30 +176,77 @@ background: rgb(80 74 74),
 
 /* Tenant-Dashboard */
 
-.tenant-dashboard-container{
 
-   margin-top:64px;
-  }
   .lg-2{
     
     height: 93vh 
-}
-.dashboard-tenant-paper{
-
+  }
+  .dashboard-tenant-paper{
+    
     width: 100%;
-    height: 100%;
-    background: #343434 !important;
-    margin-top: -1px;
-    /* border: 2px solid whitesmoke */
- 
-}
-.tenant-heading h1{
-text-align: center;
-color: #F0FFFF;
-font-weight: 200;
+    height: 100vh;
+    background: #808080 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 5px solid #FFF8DC;
 
+    
+  }
+  .Dashboard-Heading{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    word-spacing: 1px;
+    color: #A9A9A9
+   
+
+    
+  }
+  .TRVS{
+    letter-spacing: 10px;
+    color:#DCDCDC;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .TRVS:hover{
+    color:#FFFAF0
+  }
+  .guest{
+    letter-spacing: 1px;
+    color:#DCDCDC;
+    font-size: 19px;
+    cursor: pointer;
+    word-spacing: 1px;
+  }
+  .guest:hover{
+    color:#FFFAF0;
+  }
+    
+.Content{
+  width:70%;
+  margin: 0 auto;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  
+  
 }
-.dashboard-logo{
+
+    .tenant-heading h1{
+    text-align: center;
+    color: #F0FFFF;
+    font-weight: 200;
+    
+  }
+  .your-information-section{
+  
+         height:90vh ;
+         background: whitesmoke;
+
+  
+  }
+  .dashboard-logo{
  font-size: 50px;
  color: #F0FFFF;
 
@@ -199,8 +259,25 @@ letter-spacing: 1px;
 font-weight: 200;
 
 }
+.add{
+
+    width:52% ;
+    display: flex;
+    justify-content: flex-end;
+}
+.remove{
+  width:55%;
+  display: flex;
+  justify-content: flex-end;
+}
+.no-residency-added{
+  margin:10px auto ;
+  width:90%;
+  padding-bottom: 10px;
+}
+
+
 .welcome-tenant{
-  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }
@@ -211,6 +288,7 @@ font-weight: 200;
 .logout-icon{
  display: flex;
 align-items: center;
+margin-bottom: 20px;
 }
 .paper{
   width:"500px";
@@ -229,9 +307,10 @@ align-items: center;
 }
 
 .info{
-  width:90%;
+  /* border: 2px solid red; */
+  width:80%;
   margin: 0 auto;
-  padding-left: 40px ;
+  padding-bottom: 10px;
 
 }
 .main-residency-div{
@@ -253,18 +332,29 @@ align-items: center;
 height: 100vh;
 background-color: whitesmoke;
 }
-.add-residency{
-padding-top: 20px;
-}
 .residency-paper{
-   width: 700px;
-}
-.paper-col-12{
 
-text-align: center;}
-.residency-form{
-display: flex; 
-justify-content: space-around;
+width:700px;
+padding:30px
+}
+
+
+
+.section-residency{
+
+   
+    margin :0 auto;
+    width:95%;
+    display: flex;
+    padding:30px 0 ;
+}
+.residency-content{
+     width:12% ;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 20px;
+
 }
 .last-col{
 
@@ -315,3 +405,10 @@ justify-content: space-around;
 }
 
 
+.borderBottom {
+
+  color: #1E90FF
+}
+.active{
+border-bottom: 2px solid #DCDCDC;
+}

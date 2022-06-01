@@ -1,399 +1,123 @@
 import React, { useState } from "react";
-import { Link, Typography } from "@mui/material";
+import { Button, Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import NavBar from "../Landing-Pages/Nav-Bar";
-import CurrentTenants from "../CurrentTenants";
-import NewTenants from "../NewTenants";
-import TenantHistory from "../TenantHistory";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import CurrentTenants from "../Police-System/CurrentTenants";
+import NewTenants from "../Police-System/NewTenants";
+import TenantHistory from "../Police-System/TenantHistory";
+import { useRouter } from "next/router";
+
 export default function Tenants() {
+  const router = useRouter();
+
   const [value, setValue] = useState(0);
 
   return (
-    <div>
-      <NavBar />
-      <div
-        style={{
-          marginTop: "5%",
-          width: "90%",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Grid container>
-          <Grid item xl={12}>
-            <div
-              style={{
-                width: "50%",
-                margin: "0 auto",
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(0)}
-              >
-                <Typography style={{ color: value === 0 ? "blue" : "black" }}>
-                  Current Tenants
-                </Typography>
-              </Link>
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(1)}
-              >
-                <Typography style={{ color: value === 1 ? "blue" : "black" }}>
-                  New Tenants{" "}
-                </Typography>
-              </Link>
-              <Link
-                component="button"
-                variant="body2"
-                underline="none"
-                onClick={() => setValue(2)}
-              >
-                <Typography style={{ color: value === 2 ? "blue" : "black" }}>
-                  Tenants History{" "}
-                </Typography>
-              </Link>
-            </div>
-          </Grid>
+    <div style={{ background: "whitesmoke" }}>
+      <Grid container>
+        <Grid item xl={2} marginTop={"50px"} textAlign="center">
+          <Button
+            variant="contained"
+            onClick={() => router.push("/Police-System/Police-dashboard")}
+          >
+            <ArrowBackIcon /> Back
+          </Button>
         </Grid>
-        {value === 0 && <CurrentTenants />}
-        {value === 1 && <NewTenants />}
+        <Grid item xl={4}></Grid>
+
+        <Grid item xl={6}></Grid>
+      </Grid>
+
+      <Grid container marginTop={"30px"}>
+        <Grid item xl={4} textAlign="right">
+          <Typography
+            variant="p"
+            onClick={() => setValue(0)}
+            className={value === 0 ? "borderBottom" : ""}
+            style={{
+              cursor: " pointer",
+              fontSize: "20px",
+              letterSpacing: "1px",
+              wordSpacing: "2px",
+            }}
+          >
+            New Tenants
+          </Typography>
+        </Grid>
+        <Grid item xl={4} textAlign="center">
+          <Typography
+            variant="p"
+            onClick={() => setValue(1)}
+            className={value === 1 ? "borderBottom" : ""}
+            style={{
+              cursor: " pointer",
+              fontSize: "20px",
+              letterSpacing: "1px",
+              wordSpacing: "2px",
+            }}
+          >
+            Current Tenants
+          </Typography>
+        </Grid>
+
+        <Grid item xl={4} textAlign="left">
+          <Typography
+            variant="p"
+            onClick={() => setValue(2)}
+            className={value === 2 ? "borderBottom" : ""}
+            style={{
+              cursor: " pointer",
+              fontSize: "20px",
+              letterSpacing: "1px",
+              wordSpacing: "2px",
+            }}
+          >
+            Tenants History
+          </Typography>
+        </Grid>
+      </Grid>
+      <div>
+        {value === 0 && <NewTenants />}
+        {value === 1 && <CurrentTenants />}
         {value === 2 && <TenantHistory />}
       </div>
     </div>
   );
 }
 {
-  /* <div
-        style={{
-          marginTop: "3%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          width: "80%",
-        }}
-      >
-        <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
-            </Grid>
-          </Grid>
-          <hr />
-          <Grid container padding={"0 40px"}>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Name : Taqi Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Email : 123@gmail.com</p>
-              </div>
-            </Grid>
-
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Cnic : 9854345689</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Father Name : Mujawar Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Phone : 0329876789</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Address : xyz City </p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Name : Steve</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Cnic : 34565434</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Father : Bob</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Phone : 0875445678</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-          </Grid>
-        </Paper>
-      </div> */
-}
-
-{
-  /* 
-        -----2ND PAPER------ */
+  /* <Link
+            component="button"
+            variant="body2"
+            underline="none"
+            onClick={() => setValue(0)}
+            style={{ color: "black", fontSize: "16px" }}
+            className={value === 0 ? "borderBottom" : ""}
+          >
+            New Tenants
+          </Link> */
 }
 {
-  /* <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
-            </Grid>
-          </Grid>
-          <hr />
-          <Grid container padding={"0 40px"}>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Name : Taqi Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Email : 123@gmail.com</p>
-              </div>
-            </Grid>
-
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Cnic : 9854345689</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Father Name : Mujawar Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Phone : 0329876789</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Address : xyz City </p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Name : Steve</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Cnic : 34565434</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Father : Bob</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Phone : 0875445678</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-          </Grid>
-        </Paper> */
-}
-
-{
-  /* -----3RD Paper---- */
+  /* <Link
+            component="button"
+            variant="body2"
+            underline="none"
+            onClick={() => setValue(1)}
+            style={{ color: "black", fontSize: "16px" }}
+            className={value === 1 ? "borderBottom" : ""}
+          >
+            CurrentTenants
+          </Link> */
 }
 {
-  /* <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
-            </Grid>
-          </Grid>
-          <hr />
-          <Grid container padding={"0 40px"}>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Name : Taqi Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Email : 123@gmail.com</p>
-              </div>
-            </Grid>
-
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Cnic : 9854345689</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Father Name : Mujawar Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Phone : 0329876789</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Address : xyz City </p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Name : Steve</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Cnic : 34565434</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Father : Bob</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Phone : 0875445678</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-          </Grid>
-        </Paper> */
+  /* <Link
+            component="button"
+            variant="body2"
+            underline="none"
+            onClick={() => setValue(2)}
+            className={value === 2 ? "borderBottom" : ""}
+            style={{ color: "black", fontSize: "16px" }}
+          >
+            Tenants History
+          </Link> */
 }
-
-{
-  /* ---4TH Paper--- */
-}
-
-/* <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
-            </Grid>
-          </Grid>
-          <hr />
-          <Grid container padding={"0 40px"}>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Name : Taqi Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Email : 123@gmail.com</p>
-              </div>
-            </Grid>
-
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Cnic : 9854345689</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Father Name : Mujawar Ali</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Phone : 0329876789</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Address : xyz City </p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Name : Steve</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Cnic : 34565434</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Father : Bob</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Owner Phone : 0875445678</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-          </Grid>
-        </Paper> */

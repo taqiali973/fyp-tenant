@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -8,22 +8,40 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
-import { inputLabelClasses } from "@mui/material/InputLabel";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-// import InputAdornment from "@mui/material/InputAdornment";
-
+import PersonIcon from "@mui/icons-material/Person";
+import InputAdornment from "@mui/material/InputAdornment";
+import LockIcon from "@mui/icons-material/Lock";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function TenantLogin() {
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://fyp-tenant.herokuapp.com/api/tenant/login",
+        {
+          email: data.username,
+          password: data.password,
+        }
+      );
+
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      alert("Successfully Logged in");
+    } catch (error) {
+      console.log(error);
+      alert("Invalid Credentials");
+    }
+
     reset();
   };
 
@@ -47,66 +65,55 @@ export default function TenantLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
-              id="standard-basic"
+              id="standard-basic1"
               label="Username"
-              variant="standard"
+              variant="outlined"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
+              }}
+              background="green"
               fullWidth
               required
               type="email"
-              icon={<VisibilityIcon sx={{ color: "black" }} />}
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
+              {...register("username", {
+                required: "username is required",
+                pattern: {
+                  value:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 },
-              }}
-              // {...register("username", {
-              //   required: "username is required",
-              //   pattern: {
-              //     value:
-              //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              //     message: "Invalid Email Address",
-              //   },
-              // })}
-              // error={!!errors?.username}
-              // helperText={errors?.username ? errors.username.message : null}
+              })}
+              error={!!errors?.username}
+              helperText={errors?.username ? errors.username.message : null}
             />
             <br />
             <br />
-            {/* <div style={{ display: "flex" }}> */}
+
+            <br />
             <TextField
-              id="standard-basic"
+              id="standard-basic2"
               label=" Password"
-              variant="standard"
+              variant="outlined"
               fullWidth
-              required
-              type="password"
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
-                },
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
               }}
-              // {...register("password", {
-              //   required: "password is required",
-              // })}
-              // error={!!errors?.password}
-              // helperText={errors?.password ? errors.password.message : null}
+              required
+              type="text"
+              {...register("password", {
+                required: "password is required",
+              })}
+              error={!!errors?.password}
+              helperText={errors?.password ? errors.password.message : null}
             />
-            {/* InputProps=
-            {{
-              startAdornment: {
-                <InputAdornment>
-                  <VisibilityIcon />
-                </InputAdornment>
-              },
-            }} */}
-            {/* <Button>Show</Button>
-            </div> */}
+
             <br />
             <br />
             {/* Button */}
@@ -116,7 +123,7 @@ export default function TenantLogin() {
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Tenant-System/Tenant-Dashboard")}
+              // onClick={() => router.push("/Tenant-System/Tenant-Dashboard")}
             >
               Sign In
             </Button>

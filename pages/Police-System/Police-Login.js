@@ -5,19 +5,10 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
-import { inputLabelClasses } from "@mui/material/InputLabel";
 import { useRouter } from "next/router";
-
-// import { makeStyles } from "@mui/styles";
+import axios from "axios";
 
 import { useForm } from "react-hook-form";
-// const useStyles = makeStyles({
-//   root: {
-//     "& .MuiFormLabel-root": {
-//       backgroundColor: "red", // or black
-//     },
-//   },
-// });
 
 export default function PoliceLogin() {
   const router = useRouter();
@@ -28,8 +19,22 @@ export default function PoliceLogin() {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    console.log("data", data);
+    try {
+      const response = await axios.post(
+        "http://fyp-tenant.herokuapp.com/api/tenant/login",
+        {
+          email: data.username,
+          password: data.password,
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
     reset();
   };
 
@@ -53,53 +58,41 @@ export default function PoliceLogin() {
           {/* TextField */}
           <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
             <TextField
-              id="standard-basic"
+              id="standard-basic1"
               label="Username"
-              variant="standard"
+              variant="outlined"
               fullWidth
               required
               type="email"
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
+              {...register("username", {
+                required: "username is required",
+                pattern: {
+                  value:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: "invalid email address",
                 },
-              }}
-              // {...register("username", {
-              //   required: "username is required",
-              //   pattern: {
-              //     value:
-              //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              //     message: "Invalid Email Address",
-              //   },
-              // })}
-              // error={!!errors?.username}
-              // helperText={errors?.username ? errors.username.message : null}
+              })}
+              error={!!errors?.username}
+              helperText={errors?.username ? errors.username.message : null}
             />
             <br />
             <br />
             <TextField
-              id="standard-basic"
+              id="standard-basic2"
               label=" Password"
-              variant="standard"
+              variant="outlined"
               fullWidth
               required
               type="password"
-              InputLabelProps={{
-                sx: {
-                  // color: "black",
-                  [`&.${inputLabelClasses.shrink}`]: {
-                    color: "black",
-                  },
-                },
-              }}
-              // {...register("password", {
-              //   required: "password is required",
-              // })}
-              // error={!!errors?.password}
-              // helperText={errors?.password ? errors.password.message : null}
+              {...register("password", {
+                required: "password is required",
+                // pattern: {
+                //   value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/,
+                //   message: "Invalid Password",
+                // },
+              })}
+              error={!!errors?.password}
+              helperText={errors?.password ? errors.password.message : null}
             />
             <br />
             <br />

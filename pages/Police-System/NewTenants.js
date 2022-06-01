@@ -1,51 +1,64 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import NavBar from "./Landing-Pages/Nav-Bar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 const paperStyle = {
   marginBottom: "100px",
 };
-export default function TenantHistory() {
+export default function NewTenants() {
   return (
     <div>
-      <NavBar />
       <div
         style={{
-          marginTop: "3%",
+          // marginTop: "3%",
           width: "90%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
       >
-        <Grid container>
-          <Grid item xl={12} textAlign="center">
-            <Typography>Tenant History</Typography>
-          </Grid>
-        </Grid>
+        <Grid container></Grid>
       </div>
       <div
         style={{
           marginTop: "3%",
           marginLeft: "auto",
           marginRight: "auto",
-          width: "80%",
+          width: "75%",
         }}
       >
         <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -104,11 +117,6 @@ export default function TenantHistory() {
             <Grid item xl={4}>
               <div style={{ marginLeft: "40px" }}>
                 <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Exit Date : 12-9-2020</p>
               </div>
             </Grid>
           </Grid>
@@ -118,17 +126,35 @@ export default function TenantHistory() {
         -----2ND PAPER------ */}
         <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -187,11 +213,6 @@ export default function TenantHistory() {
             <Grid item xl={4}>
               <div style={{ marginLeft: "40px" }}>
                 <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Exit Date : 12-9-2020</p>
               </div>
             </Grid>
           </Grid>
@@ -200,17 +221,35 @@ export default function TenantHistory() {
         {/* -----3RD Paper---- */}
         <Paper elevation={10} style={paperStyle}>
           <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -269,11 +308,6 @@ export default function TenantHistory() {
             <Grid item xl={4}>
               <div style={{ marginLeft: "40px" }}>
                 <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Exit Date : 12-9-2020</p>
               </div>
             </Grid>
           </Grid>
@@ -281,18 +315,35 @@ export default function TenantHistory() {
 
         {/* ---4TH Paper--- */}
         <Paper elevation={10} style={paperStyle}>
-          <Grid container>
-            <Grid
-              item
-              xl={11}
-              // border={"2px solid red"}
-              display={"flex"}
-              alignItems={"center"}
-              paddingTop={"5px"}
-              margin={"0 auto"}
-            >
-              <AccountCircleIcon sx={{ fontSize: "40px" }} />
-              <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+          <Grid container sx={{ background: "darkkhaki" }}>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  // border: "2px solid red",
+                  display: "flex",
+                }}
+              >
+                <AccountCircleIcon sx={{ fontSize: "40px", color: "white" }} />
+                <p style={{ marginLeft: "4px" }}>Tenant Info</p>
+              </div>
+            </Grid>
+            <Grid item xl={6} marginTop={"20px"}>
+              <div
+                style={{
+                  width: "80%",
+                  margin: "0 auto",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <VerifiedUserIcon sx={{ fontSize: "30px" }} />
+                  </IconButton>
+                </Tooltip>
+              </div>
             </Grid>
           </Grid>
           <hr />
@@ -351,11 +402,6 @@ export default function TenantHistory() {
             <Grid item xl={4}>
               <div style={{ marginLeft: "40px" }}>
                 <p>Entry Date : 20-2-2020</p>
-              </div>
-            </Grid>
-            <Grid item xl={4}>
-              <div style={{ marginLeft: "40px" }}>
-                <p>Exit Date : 12-9-2020</p>
               </div>
             </Grid>
           </Grid>
