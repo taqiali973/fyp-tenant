@@ -13,6 +13,7 @@ import LockResetIcon from "@mui/icons-material/LockReset";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import PersonIcon from "@mui/icons-material/Person";
 import axios from "axios";
+import { StairsTwoTone } from "@mui/icons-material";
 
 export default function TenantDashboard() {
   const [tenant, setTenant] = useState(null);
@@ -34,7 +35,7 @@ export default function TenantDashboard() {
       const response = await axios.get(api, {
         headers: { Authorization: "Bearer " + token },
       });
-      // console.log(response.data);
+      console.log(response.data);
       const { tenant } = response.data;
       const { residence } = response.data;
       setTenant(tenant);
@@ -47,6 +48,14 @@ export default function TenantDashboard() {
   const router = useRouter();
 
   return (
+    // <select>
+    // foreach(stations as station){
+    //   return(
+    //     <option value=station._id>station.name</option>
+    //   )
+    // }
+    // </select>
+
     <div>
       <div className="tenant-first-div">
         {/* <NavBar /> */}
