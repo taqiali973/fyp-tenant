@@ -8,9 +8,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
-import PersonIcon from "@mui/icons-material/Person";
-import InputAdornment from "@mui/material/InputAdornment";
-import LockIcon from "@mui/icons-material/Lock";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -34,8 +31,11 @@ export default function TenantLogin() {
         }
       );
 
-      const { token } = response.data;
-      localStorage.setItem("token", token);
+      const responseData = JSON.stringify(response.data);
+
+      localStorage.setItem("tenant", responseData);
+
+      router.push("/Tenant-System/Tenant-Dashboard");
       alert("Successfully Logged in");
     } catch (error) {
       console.log(error);
@@ -68,13 +68,6 @@ export default function TenantLogin() {
               id="standard-basic1"
               label="Username"
               variant="outlined"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PersonIcon />
-                  </InputAdornment>
-                ),
-              }}
               background="green"
               fullWidth
               required
@@ -90,7 +83,6 @@ export default function TenantLogin() {
               helperText={errors?.username ? errors.username.message : null}
             />
             <br />
-            <br />
 
             <br />
             <TextField
@@ -98,13 +90,6 @@ export default function TenantLogin() {
               label=" Password"
               variant="outlined"
               fullWidth
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockIcon />
-                  </InputAdornment>
-                ),
-              }}
               required
               type="text"
               {...register("password", {

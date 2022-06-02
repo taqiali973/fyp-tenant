@@ -16,18 +16,28 @@ export default function AddResidency() {
     reset,
     formState: { errors },
   } = useForm();
+
+  let token = "";
+  if (typeof window !== "undefined") {
+    token = localStorage.getItem("token");
+  }
+  const url = "https://fyp-tenant.herokuapp.com/api/tenant/residence";
+
   const onSubmit = async (data) => {
+    console.log("Token ", token);
+    const data = {
+      residence: {
+        own_name: data.name,
+        own_cnic: data.cnic,
+        own_father: data.father,
+        own_phone: data.phone,
+        address: data.address,
+      },
+    };
     try {
-      const response = await axios.post(
-        "http://localhost:5000/tenant/residence",
-        {
-          own_name: data.name,
-          own_cnic: data.cnic,
-          own_father: data.father,
-          phone: data.phone,
-          address: data.address,
-        }
-      );
+      const response = await axios.post(url, data, {
+        headers: { Authorization: "Bearer " + token },
+      });
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -114,7 +124,7 @@ export default function AddResidency() {
                 sx={{ width: 220 }}
                 type="text"
                 {...register("address", {
-                  required: "address no is required",
+                  required: "address is required",
                 })}
                 error={!!errors?.address}
                 helperText={errors?.address ? errors.address.message : null}

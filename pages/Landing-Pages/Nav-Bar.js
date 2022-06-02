@@ -1,11 +1,10 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useRouter } from "next/router";
 import AppBar from "@mui/material/AppBar";
-import Avatar from "@mui/material/Avatar";
 import { Toolbar } from "@mui/material";
 import Link from "@mui/material/Link";
+import PersonIcon from "@mui/icons-material/Person";
 
 export default function NavBar() {
   const router = useRouter();
@@ -13,8 +12,18 @@ export default function NavBar() {
     <div>
       <AppBar className="app-bar">
         <Toolbar>
-          <Grid container>
-            <Grid item lg={2} className="logo-container">
+          <Grid
+            container
+            //  border={"2px solid green"}
+            padding={"0px 20px"}
+          >
+            <Grid
+              item
+              lg={1}
+              // border={"2px solid red"}
+              className="logo-container"
+              // textAlign={"right"}
+            >
               <Link
                 underline="none"
                 className="logo"
@@ -24,22 +33,34 @@ export default function NavBar() {
                 TRVS
               </Link>
             </Grid>
-            <Grid item lg={5}></Grid>
-
-            <Grid item lg={5} className="grid-column">
-              <Avatar
-                sx={{
-                  backgroundColor: "#343434",
+            <Grid item lg={5}>
+              <p
+                style={{
+                  fontStyle: "italic",
+                  color: "#fff",
+                  marginTop: "20px",
+                  wordSpacing: "1px",
+                  letterSpacing: "1px",
                 }}
               >
-                <AccountCircleIcon
-                  style={{
-                    fontSize: "40px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => router.push("/Tabs/Login-Tabs")}
-                />
-              </Avatar>
+                Tenant Registration & Verification System
+              </p>
+            </Grid>
+
+            <Grid
+              item
+              lg={6}
+              // border={"2px solid red"}
+              textAlign="right"
+              className="grid-column"
+            >
+              <PersonIcon
+                style={{
+                  fontSize: "40px",
+                  cursor: "pointer",
+                }}
+                onClick={() => router.push("/Tabs/Login-Tabs")}
+              />
             </Grid>
           </Grid>
         </Toolbar>

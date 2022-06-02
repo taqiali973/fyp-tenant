@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -15,8 +15,12 @@ import HistoryIcon from "@mui/icons-material/History";
 import { useRouter } from "next/router";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
+import axios from "axios";
 
-export default function TenantDashboard() {
+export default function HotelDashboard() {
+  const [hotelData, setHotelData] = useState(null);
+  const [ownerData, setOwnerData] = useState(null);
+
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -27,6 +31,27 @@ export default function TenantDashboard() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const api = "https://fyp-tenant.herokuapp.com/api/hotel/dashboard";
+
+  let token = "";
+  if (typeof window !== "undefined") {
+    token = JSON.parse(localStorage.getItem("hotel")).token;
+  }
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(api, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      setHotelData(response.data.hotel);
+      setOwnerData(response.data.owner);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -119,7 +144,10 @@ export default function TenantDashboard() {
                     }}
                   >
                     <div className="main-div">
-                      <div className="information-heading">
+                      <div
+                        className="information-heading"
+                        style={{ background: "gainsboro", marginTop: "-10px" }}
+                      >
                         <h2
                           style={{
                             marginLeft: "50px",
@@ -136,38 +164,49 @@ export default function TenantDashboard() {
                           </Button>
                         </div>
                       </div>
-                      <div className="tenant-information">
-                        <div className="info">
-                          <Grid container>
-                            <Grid item lg={6}>
-                              <p> Name : Taqi ALi</p>
+                      {hotelData ? (
+                        <div className="tenant-information">
+                          <div className="info">
+                            <Grid container>
+                              <Grid item lg={6}>
+                                <p> Hotel Name : {hotelData.hotel_name}</p>
+                              </Grid>
+                              <Grid item lg={6} textAlign="center">
+                                <p>Phone : {hotelData.phone}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                {" "}
+                                <p> Address : {hotelData.address}</p>
+                              </Grid>
+                              <Grid item lg={6} textAlign="center">
+                                {" "}
+                                <p>
+                                  {" "}
+                                  Verification Status : {hotelData.isVerified}
+                                </p>
+                              </Grid>
+                              {/* <Grid item lg={6}>
+                                <p> police station : Warris khan</p>
+                              </Grid> */}
+                              <Grid item lg={6}>
+                                <p> Total Rooms : {hotelData.totalRooms}</p>
+                              </Grid>
+                              <Grid item lg={6} textAlign="center">
+                                <p> Current Guests : {hotelData.guest_count}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                <p> Email : {hotelData.email}</p>
+                              </Grid>
                             </Grid>
-                            <Grid item lg={6}>
-                              <p>Phone : 0352-9875438</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p> Address : 123CityABC</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p> Verification Status : verified</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              <p> police station : Warris khan</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              <p> Total Rooms : 22</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              <p> Current Guests : 40</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              <p> Email : 123@gmail.com</p>
-                            </Grid>
-                          </Grid>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <p>No information</p>
+                        </div>
+                      )}
                     </div>
                   </Paper>
                 </Grid>
@@ -181,7 +220,10 @@ export default function TenantDashboard() {
                     style={{ borderRadius: "10px", paddingTop: "10px" }}
                   >
                     <div className="main-div">
-                      <div className="information-heading">
+                      <div
+                        className="information-heading"
+                        style={{ background: "gainsboro", marginTop: "-10px" }}
+                      >
                         <h2
                           style={{
                             marginLeft: "50px",
@@ -193,22 +235,30 @@ export default function TenantDashboard() {
                           <PersonIcon />
                         </div>
                       </div>
-                      <div className="tenant-information">
-                        <div className="info">
-                          <Grid container>
-                            <Grid item lg={6}>
-                              <p> Name : Taqi ALi</p>
+                      {ownerData ? (
+                        <div className="tenant-information">
+                          <div className="info">
+                            <Grid container>
+                              <Grid item lg={6}>
+                                <p> Name : {ownerData.own_name}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                <p>Cnic : {ownerData.own_cnic}</p>
+                              </Grid>
+                              <Grid item lg={6}>
+                                {" "}
+                                <p> Father :{ownerData.own_father}</p>
+                              </Grid>
                             </Grid>
-                            <Grid item lg={6}>
-                              <p>Cnic : 36794-9875380-3</p>
-                            </Grid>
-                            <Grid item lg={6}>
-                              {" "}
-                              <p> Father : Mujawar Ali</p>
-                            </Grid>
-                          </Grid>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <p>No information</p>
+                        </div>
+                      )}
                     </div>
                   </Paper>
                 </Grid>
@@ -228,12 +278,12 @@ export default function TenantDashboard() {
         <DialogContent>
           <DialogContentText className="DialogContentText">
             <form>
-              <Grid container align="center">
+              <Grid container align="center" padding={"10px"}>
                 <Grid item lg={6}>
                   <TextField
                     id="outlined-basic"
                     label="Name"
-                    variant="standard"
+                    variant="outlined"
                     required
                   />
                 </Grid>
@@ -244,7 +294,7 @@ export default function TenantDashboard() {
                   <TextField
                     id="outlined-basic"
                     label="Cnic"
-                    variant="standard"
+                    variant="outlined"
                     required
                   />
                 </Grid>
@@ -252,7 +302,7 @@ export default function TenantDashboard() {
                   <TextField
                     id="outlined-basic"
                     label="Room No"
-                    variant="standard"
+                    variant="outlined"
                     required
                   />
                 </Grid>
@@ -260,7 +310,7 @@ export default function TenantDashboard() {
                   <TextField
                     id="outlined-basic"
                     label="Phone"
-                    variant="standard"
+                    variant="outlined"
                     required
                   />
                 </Grid>

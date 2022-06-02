@@ -45,13 +45,14 @@ export default function LoginTabs() {
             <TabList
               onChange={handleChange}
               variant="fullWidth"
-              style={{ backgroundColor: "#626161" }}
+              // style={{ backgroundColor: "#626161" }}
+              className="Tab-List"
             >
               <Tab
                 label="Tenant"
                 className="tab"
                 icon={<AccountCircleIcon className="avatar" />}
-                style={{ color: selectedTab == 1 ? "#E2E5DE" : "#B2BEB5" }}
+                style={{ color: selectedTab == 1 ? "#ffff" : "#B2BEB5" }}
                 value="1"
               />
               <Tab
@@ -59,13 +60,13 @@ export default function LoginTabs() {
                 className="tab"
                 icon={<HotelIcon className="avatar" />}
                 value="2"
-                style={{ color: selectedTab == 2 ? "#E2E5DE" : "#B2BEB5" }}
+                style={{ color: selectedTab == 2 ? "#ffff" : "#B2BEB5" }}
               />
               <Tab
                 label="Police"
                 className="tab"
                 icon={<LocalPoliceIcon className="avatar" />}
-                style={{ color: selectedTab == 3 ? "#E2E5DE" : "#B2BEB5" }}
+                style={{ color: selectedTab == 3 ? "#ffff" : "#B2BEB5" }}
                 value="3"
               />
             </TabList>

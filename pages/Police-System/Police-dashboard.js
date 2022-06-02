@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
@@ -9,9 +9,33 @@ import { useRouter } from "next/router";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LockResetIcon from "@mui/icons-material/LockReset";
 import HotelIcon from "@mui/icons-material/Hotel";
+import axios from "axios";
 
 export default function PoliceDashboard() {
+  const [policeData, setPoliceData] = useState(null);
+
   const router = useRouter();
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const api = "https://fyp-tenant.herokuapp.com/api/police/dashboard";
+
+  let token = "";
+  if (typeof window !== "undefined") {
+    token = JSON.parse(localStorage.getItem("police")).token;
+  }
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(api, {
+        headers: { Authorization: "Bearer " + token },
+      });
+      setPoliceData(response.data.station);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -98,18 +122,31 @@ export default function PoliceDashboard() {
                 <Grid item lg={6}>
                   <Paper elevation={10} className="paper">
                     <div className="main-div">
-                      <div className="information-heading">
-                        <h2
+                      {policeData ? (
+                        <div
+                          className="information-heading"
                           style={{
-                            marginLeft: "50px",
+                            background: "gainsboro",
+                            marginTop: "-10px",
                           }}
                         >
-                          Station Information
-                        </h2>
-                        <div className="person-icon">
-                          <PersonIcon />
+                          <h2
+                            style={{
+                              marginLeft: "50px",
+                            }}
+                          >
+                            Station Information
+                          </h2>
+                          <div className="person-icon">
+                            <PersonIcon />
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div>
+                          <p>No information</p>
+                        </div>
+                      )}
+
                       <div className="tenant-information">
                         <div className="info">
                           <Grid container>
@@ -213,7 +250,10 @@ export default function PoliceDashboard() {
                 <Grid item lg={6} className="residency-col">
                   <Paper elevation={10} className="paper">
                     <div className="main-div">
-                      <div className="information-heading">
+                      <div
+                        className="information-heading"
+                        style={{ background: "gainsboro", marginTop: "-10px" }}
+                      >
                         <h2
                           style={{
                             marginLeft: "50px",

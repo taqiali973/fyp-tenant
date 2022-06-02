@@ -48,7 +48,7 @@ export default function TenantSignUp() {
       <div className="tenant-signUp-div">
         <Paper elevation={10} className="paperStyle">
           <Grid container align="center">
-            <Grid item lg={12} padding={"10px 0"}>
+            <Grid item lg={12} padding={"15px 0"}>
               <Avatar sx={{ background: "black" }}>
                 <AccountCircleIcon sx={{ fontSize: "40px", color: "white" }} />
               </Avatar>
@@ -57,123 +57,112 @@ export default function TenantSignUp() {
               SignUp
             </Grid>
           </Grid>
-          <Grid container>
-            <Grid item lg={12} paddingTop={"20px"}>
-              <form
-                autoComplete="off"
-                noValidate
-                onSubmit={handleSubmit(onSubmit)}
+          <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
+            <Grid container align="center">
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  label="Name"
+                  required
+                  type="text"
+                  variant="outlined"
+                  {...register("name", {
+                    required: "name is required",
+                  })}
+                  error={!!errors?.name}
+                  helperText={errors?.name ? errors.name.message : null}
+                />
+              </Grid>
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  label="Father"
+                  variant="outlined"
+                  required
+                  type="text"
+                  {...register("father", {
+                    required: "father is required",
+                  })}
+                  error={!!errors?.father}
+                  helperText={errors?.father ? errors.father.message : null}
+                />
+              </Grid>
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  label="Cnic"
+                  variant="outlined"
+                  required
+                  type="text"
+                  {...register("cnic", {
+                    required: "cnic is required",
+                  })}
+                  error={!!errors?.cnic}
+                  helperText={errors?.cnic ? errors.cnic.message : null}
+                />
+              </Grid>
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  label="Phone"
+                  variant="outlined"
+                  required
+                  type="text"
+                  {...register("phone", {
+                    required: "phone no is required",
+                  })}
+                  error={!!errors?.phone}
+                  helperText={errors?.phone ? errors.phone.message : null}
+                />
+              </Grid>
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  required
+                  type="text"
+                  {...register("email", {
+                    required: "email is required",
+                    pattern: {
+                      value:
+                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    },
+                  })}
+                  error={!!errors?.email}
+                  helperText={errors?.email ? errors.email.message : null}
+                />
+              </Grid>
+              <Grid item lg={6} marginBottom={"15px"}>
+                <TextField
+                  variant="outlined"
+                  label="Password"
+                  placeholder="password"
+                  required
+                  type="text"
+                  {...register("password", {
+                    required: "password is required",
+                  })}
+                  error={!!errors?.password}
+                  helperText={errors?.password ? errors.password.message : null}
+                />
+              </Grid>
+
+              <Grid
+                item
+                lg={12}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                marginTop={"40px"}
+                marginBottom={"20px"}
               >
-                <div className="residency-form">
-                  <TextField
-                    label="Name"
-                    required
-                    type="text"
-                    variant="outlined"
-                    {...register("name", {
-                      required: "name is required",
-                    })}
-                    error={!!errors?.name}
-                    helperText={errors?.name ? errors.name.message : null}
-                  />
-
-                  <TextField
-                    label="Father"
-                    variant="outlined"
-                    required
-                    type="text"
-                    {...register("father", {
-                      required: "father is required",
-                    })}
-                    error={!!errors?.father}
-                    helperText={errors?.father ? errors.father.message : null}
-                  />
-                </div>
-                <br />
-                <br />
-
-                <div className="residency-form">
-                  <TextField
-                    label="Cnic"
-                    variant="outlined"
-                    required
-                    type="text"
-                    {...register("cnic", {
-                      required: "cnic is required",
-                    })}
-                    error={!!errors?.cnic}
-                    helperText={errors?.cnic ? errors.cnic.message : null}
-                  />
-                  <TextField
-                    label="Phone"
-                    variant="outlined"
-                    required
-                    type="text"
-                    {...register("phone", {
-                      required: "phone no is required",
-                    })}
-                    error={!!errors?.phone}
-                    helperText={errors?.phone ? errors.phone.message : null}
-                  />
-                </div>
-                <br />
-                <br />
-
-                <div className="residency-form">
-                  <TextField
-                    label="Email"
-                    variant="outlined"
-                    required
-                    type="text"
-                    {...register("email", {
-                      required: "email is required",
-                      pattern: {
-                        value:
-                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                      },
-                    })}
-                    error={!!errors?.email}
-                    helperText={errors?.email ? errors.email.message : null}
-                  />
-                  <TextField
-                    variant="outlined"
-                    label="Password"
-                    placeholder="password"
-                    required
-                    type="text"
-                    {...register("password", {
-                      required: "password is required",
-                    })}
-                    error={!!errors?.password}
-                    helperText={
-                      errors?.password ? errors.password.message : null
-                    }
-                  />
-                </div>
-                <Grid
-                  item
-                  lg={12}
-                  display={"flex"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  marginTop={"40px"}
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  // onClick={() => router.push("/Tenant-System/Tenant-Dashboard")}
                 >
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    onClick={() =>
-                      router.push("/Tenant-System/Tenant-Dashboard")
-                    }
-                  >
-                    Submit
-                  </Button>{" "}
-                </Grid>
-              </form>
+                  Submit
+                </Button>{" "}
+              </Grid>
             </Grid>
-          </Grid>
-          <br />
-          <br />
+          </form>
         </Paper>
       </div>
     </div>

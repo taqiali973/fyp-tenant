@@ -17,6 +17,7 @@ import axios from "axios";
 export default function TenantDashboard() {
   const [tenant, setTenant] = useState(null);
   const [residency, setResidency] = useState();
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -25,7 +26,7 @@ export default function TenantDashboard() {
 
   let token = "";
   if (typeof window !== "undefined") {
-    token = localStorage.getItem("token");
+    token = JSON.parse(localStorage.getItem("tenant")).token;
   }
 
   const fetchData = async () => {
@@ -33,7 +34,7 @@ export default function TenantDashboard() {
       const response = await axios.get(api, {
         headers: { Authorization: "Bearer " + token },
       });
-      console.log(response.data);
+      // console.log(response.data);
       const { tenant } = response.data;
       const { residence } = response.data;
       setTenant(tenant);
@@ -95,7 +96,10 @@ export default function TenantDashboard() {
                     style={{ borderRadius: "10px" }}
                   >
                     <div className="main-div">
-                      <div className="information-heading">
+                      <div
+                        className="information-heading"
+                        style={{ background: "gainsboro" }}
+                      >
                         <h2
                           style={{
                             marginLeft: "50px",
@@ -217,46 +221,50 @@ export default function TenantDashboard() {
                 <Grid item lg={1}></Grid>
                 <Grid item lg={6} className="residency-col">
                   <Paper elevation={10} className="paper-residency">
-                    <div className="section-residency">
-                      <div className="residency-content">Residency</div>
+                    <div style={{ width: "100%", background: "gainsboro" }}>
                       <div
-                        style={{
-                          width: "36%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
+                        className="section-residency"
+                        style={{ background: "gainsboro" }}
                       >
-                        <Button variant="contained">
-                          <VerifiedUserIcon sx={{ marginRight: "5px" }} />
-                          Verified
-                        </Button>
-                        <Button variant="contained">
-                          <GppMaybeIcon sx={{ marginRight: "5px" }} />
-                          UnVerify
-                        </Button>
-                      </div>
-                      <div className="add">
-                        <div className="remove">
-                          {residency === null ? (
-                            <Button
-                              variant="contained"
-                              onClick={() =>
-                                router.push("/Tenant-System/Add-Residency")
-                              }
-                            >
-                              <AddIcon />
-                              Add
-                            </Button>
-                          ) : (
-                            <Button variant="contained">
-                              <RemoveIcon />
-                              Remove
-                            </Button>
-                          )}
+                        <div className="residency-content">Residency</div>
+                        <div
+                          style={{
+                            width: "36%",
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Button variant="contained">
+                            <VerifiedUserIcon sx={{ marginRight: "5px" }} />
+                            Verified
+                          </Button>
+                          <Button variant="contained">
+                            <GppMaybeIcon sx={{ marginRight: "5px" }} />
+                            UnVerify
+                          </Button>
+                        </div>
+                        <div className="add">
+                          <div className="remove">
+                            {residency === null ? (
+                              <Button
+                                variant="contained"
+                                onClick={() =>
+                                  router.push("/Tenant-System/Add-Residency")
+                                }
+                              >
+                                <AddIcon />
+                                Add
+                              </Button>
+                            ) : (
+                              <Button variant="contained">
+                                <RemoveIcon />
+                                Remove
+                              </Button>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-
                     <div className="no-residency-added">No Residency Added</div>
                   </Paper>
                 </Grid>

@@ -22,18 +22,24 @@ export default function HotelLogin() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("data", data);
+    // console.log("data", data);
     try {
       const response = await axios.post(
-        "http://fyp-tenant.herokuapp.com/api/tenant/login",
+        "https://fyp-tenant.herokuapp.com/api/hotel/login",
         {
           email: data.username,
           password: data.password,
         }
       );
-      console.log(response.data);
+      const responseData = JSON.stringify(response.data);
+
+      localStorage.setItem("hotel", responseData);
+
+      router.push("/Hotel-System/Hotel-Dashboard");
+      alert("Successfully Logged in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      alert("Invalid Credentials");
     }
 
     reset();
@@ -103,7 +109,6 @@ export default function HotelLogin() {
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Hotel-System/Hotel-Dashboard")}
             >
               Sign In
             </Button>

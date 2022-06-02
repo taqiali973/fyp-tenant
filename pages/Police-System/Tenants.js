@@ -19,7 +19,7 @@ export default function Tenants() {
         <Grid item xl={2} marginTop={"50px"} textAlign="center">
           <Button
             variant="contained"
-            onClick={() => router.push("/Police-System/Police-dashboard")}
+            onClick={() => router.push("/Police-System/Police-Dashboard")}
           >
             <ArrowBackIcon /> Back
           </Button>

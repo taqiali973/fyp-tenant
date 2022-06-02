@@ -1,7 +1,7 @@
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import React from "react";
 import NavBar from "./Nav-Bar";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 
 export default function MainLandingPage() {
   return (
@@ -19,7 +19,7 @@ export default function MainLandingPage() {
               </div>
               <div className="app-para">
                 <h3>
-                  This project will help the Punjab police and government of
+                  This System will help the Punjab police and government of
                   Punjab in maintaining the tenants of Punjab province. The
                   local tenants will also be facilitated with this system with
                   verification of their request without forcible locomotion to
@@ -28,12 +28,12 @@ export default function MainLandingPage() {
               </div>
             </div>
 
-            <div className="header-button">
+            {/* <div className="header-button">
               <div className="header-button-content">
                 <Button variant="contained">About Us</Button>
                 <Button variant="contained">Contact</Button>
               </div>
-            </div>
+            </div> */}
             <div className="copy-right">
               <div className="copy-right-text">
                 <p className="copy-right-para">

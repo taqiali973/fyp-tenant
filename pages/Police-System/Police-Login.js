@@ -24,17 +24,22 @@ export default function PoliceLogin() {
     console.log("data", data);
     try {
       const response = await axios.post(
-        "http://fyp-tenant.herokuapp.com/api/tenant/login",
+        "https://fyp-tenant.herokuapp.com/api/police/login",
         {
           email: data.username,
           password: data.password,
         }
       );
-      console.log(response.data);
+      const responseData = JSON.stringify(response.data);
+
+      localStorage.setItem("police", responseData);
+
+      router.push("/Police-System/Police-Dashboard");
+      alert("Successfully Logged in");
     } catch (error) {
       console.log(error);
+      alert("Invalid Credentials");
     }
-
     reset();
   };
 
@@ -103,7 +108,6 @@ export default function PoliceLogin() {
               variant="contained"
               color="primary"
               fullWidth
-              onClick={() => router.push("/Police-System/Police-dashboard")}
             >
               Sign In
             </Button>
